@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+"-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+"http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+	<definition name="base.main" template="/WEB-INF/views/commons/layout.jsp">
+		<put-attribute name="title" value="Solute" />
+		<put-attribute name="subHeader" value="/WEB-INF/views/commons/logo.jsp" />
+		<put-attribute name="commons" value="/WEB-INF/views/commons/commons.jsp" />
+		<put-attribute name="script" value="" />
+		<put-attribute name="header" value="/header" />
+		<put-attribute name="menu" value="/WEB-INF/views/commons/menu.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer" value="/footer" />
+	</definition>
+	<definition name="base.sso" template="/WEB-INF/views/sso/template/layout.jsp">
+		<put-attribute name="title" value="Solute" />
+		<put-attribute name="commons" value="/WEB-INF/views/commons/commons.jsp" />
+		<put-attribute name="script" value="/WEB-INF/views/sso/template/script.jsp" />
+		<put-attribute name="logo" value="/WEB-INF/views/sso/template/logo.jsp" />
+		<put-attribute name="subLogo" value="/WEB-INF/views/sso/template/subLogo.jsp" />
+		<put-attribute name="contact" value="" />
+		<put-attribute name="footer" value="/footer" />
+	</definition>
+	
+	<definition name="home" extends="base.sso">
+		<put-attribute name="contact" value="/WEB-INF/views/sso/home/contact.jsp" />
+	</definition>
+	<definition name="login" extends="base.sso">
+		<put-attribute name="contact" value="/WEB-INF/views/sso/login/contact.jsp" />
+	</definition>
+	<definition name="regist" extends="base.sso">
+		<put-attribute name="contact" value="/WEB-INF/views/sso/regist/contact.jsp" />
+	</definition>
+	
+	<definition name="main.index" extends="base.main">
+		<put-attribute name="subHeader" value="/WEB-INF/views/main/index/logo.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/main/index/contact.jsp" />
+	</definition>
+	
+	<definition name="main.mypage" extends="base.main">
+		<put-attribute name="body" value="/WEB-INF/views/main/mypage/contact.jsp" />
+	</definition>
+	
+	<definition name="main.result" extends="base.main">
+		<put-attribute name="body" value="/WEB-INF/views/main/result/contact.jsp" />
+	</definition>
+
+</tiles-definitions>

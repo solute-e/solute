@@ -1,0 +1,24 @@
+@CHARSET "UTF-8";
+
+body {
+	font-family: "맑은 고딕", 'Malgun Gothic', 'dotum';
+	font-size: 12px;
+	font-weight: normal;
+}
+
+*:focus {
+	outline: none;
+}
+
+a:link {color: blue; text-decoration: none;}
+a:visited {color: red; text-decoration: none;}
+a:active {color: green; font-weight: bold}
+a:hover {color: orange; font-weight: bold; text-shadow: black;}
+
+.main_table {
+	width: 1024px;
+}
+
+.sso {
+	margin-top: -200px; margin-left: -400px; position: absolute; top: 50%; left: 50%; width: 800px; height: 400px;
+}
