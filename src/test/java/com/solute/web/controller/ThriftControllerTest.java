@@ -25,18 +25,11 @@ public class ThriftControllerTest extends AbstractSpringBaseTest {
 	@Autowired
 	private ThriftController controller;
 	
-	private MockHttpServletRequest request;
-	private MockHttpServletResponse response;
 	private DispatcherServlet dispatcher;
-	private MockServletContext context;
 
 	@Before
 	public void setUp() throws Exception {
-		request = new MockHttpServletRequest();
-		response = new MockHttpServletResponse();
-		context = new MockServletContext();
-
-		MockServletConfig config = new MockServletConfig("/");
+		MockServletConfig config = new MockServletConfig("dispatcher");
 		config.addInitParameter("contextConfigLocation", "classpath:/META-INF/spring/appServlet/servlet-context.xml");
 
 		dispatcher = new DispatcherServlet();
@@ -48,6 +41,7 @@ public class ThriftControllerTest extends AbstractSpringBaseTest {
 		MockHttpServletRequest request = new MockHttpServletRequest();
 		MockHttpServletResponse response = new MockHttpServletResponse();
 		AnnotationMethodHandlerAdapter handlerAdpt = new AnnotationMethodHandlerAdapter();
+		request.setMethod("POST");
 		request.setRequestURI("/thrift/test");
 		ModelAndView mav = handlerAdpt.handle(request, response, this.controller);
 		
