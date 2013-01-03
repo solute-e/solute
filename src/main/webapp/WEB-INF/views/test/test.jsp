@@ -15,7 +15,6 @@
 	    var client    = new EchoServiceClient(protocol);
 
 		$("#echo_box").text(client.echo("strstr"));
-		
 	});
 </script>
 </head>

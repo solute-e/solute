@@ -1,5 +1,6 @@
 namespace java com.solute.thrift.gen
 
 service EchoService {
-	string echo(1: string str)
+	void put(1: string id, 2: string echoStr),
+	string get(1: string id)
 }

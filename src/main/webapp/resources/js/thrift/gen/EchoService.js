@@ -7,16 +7,20 @@
 
 //HELPER FUNCTIONS AND STRUCTURES
 
-EchoService_echo_args = function(args) {
-  this.str = null;
+EchoService_put_args = function(args) {
+  this.id = null;
+  this.echoStr = null;
   if (args) {
-    if (args.str !== undefined) {
-      this.str = args.str;
+    if (args.id !== undefined) {
+      this.id = args.id;
+    }
+    if (args.echoStr !== undefined) {
+      this.echoStr = args.echoStr;
     }
   }
 };
-EchoService_echo_args.prototype = {};
-EchoService_echo_args.prototype.read = function(input) {
+EchoService_put_args.prototype = {};
+EchoService_put_args.prototype.read = function(input) {
   input.readStructBegin();
   while (true)
   {
@@ -31,7 +35,97 @@ EchoService_echo_args.prototype.read = function(input) {
     {
       case 1:
       if (ftype == Thrift.Type.STRING) {
-        this.str = input.readString().value;
+        this.id = input.readString().value;
+      } else {
+        input.skip(ftype);
+      }
+      break;
+      case 2:
+      if (ftype == Thrift.Type.STRING) {
+        this.echoStr = input.readString().value;
+      } else {
+        input.skip(ftype);
+      }
+      break;
+      default:
+        input.skip(ftype);
+    }
+    input.readFieldEnd();
+  }
+  input.readStructEnd();
+  return;
+};
+
+EchoService_put_args.prototype.write = function(output) {
+  output.writeStructBegin('EchoService_put_args');
+  if (this.id !== null && this.id !== undefined) {
+    output.writeFieldBegin('id', Thrift.Type.STRING, 1);
+    output.writeString(this.id);
+    output.writeFieldEnd();
+  }
+  if (this.echoStr !== null && this.echoStr !== undefined) {
+    output.writeFieldBegin('echoStr', Thrift.Type.STRING, 2);
+    output.writeString(this.echoStr);
+    output.writeFieldEnd();
+  }
+  output.writeFieldStop();
+  output.writeStructEnd();
+  return;
+};
+
+EchoService_put_result = function(args) {
+};
+EchoService_put_result.prototype = {};
+EchoService_put_result.prototype.read = function(input) {
+  input.readStructBegin();
+  while (true)
+  {
+    var ret = input.readFieldBegin();
+    var fname = ret.fname;
+    var ftype = ret.ftype;
+    var fid = ret.fid;
+    if (ftype == Thrift.Type.STOP) {
+      break;
+    }
+    input.skip(ftype);
+    input.readFieldEnd();
+  }
+  input.readStructEnd();
+  return;
+};
+
+EchoService_put_result.prototype.write = function(output) {
+  output.writeStructBegin('EchoService_put_result');
+  output.writeFieldStop();
+  output.writeStructEnd();
+  return;
+};
+
+EchoService_get_args = function(args) {
+  this.id = null;
+  if (args) {
+    if (args.id !== undefined) {
+      this.id = args.id;
+    }
+  }
+};
+EchoService_get_args.prototype = {};
+EchoService_get_args.prototype.read = function(input) {
+  input.readStructBegin();
+  while (true)
+  {
+    var ret = input.readFieldBegin();
+    var fname = ret.fname;
+    var ftype = ret.ftype;
+    var fid = ret.fid;
+    if (ftype == Thrift.Type.STOP) {
+      break;
+    }
+    switch (fid)
+    {
+      case 1:
+      if (ftype == Thrift.Type.STRING) {
+        this.id = input.readString().value;
       } else {
         input.skip(ftype);
       }
@@ -48,11 +142,11 @@ EchoService_echo_args.prototype.read = function(input) {
   return;
 };
 
-EchoService_echo_args.prototype.write = function(output) {
-  output.writeStructBegin('EchoService_echo_args');
-  if (this.str !== null && this.str !== undefined) {
-    output.writeFieldBegin('str', Thrift.Type.STRING, 1);
-    output.writeString(this.str);
+EchoService_get_args.prototype.write = function(output) {
+  output.writeStructBegin('EchoService_get_args');
+  if (this.id !== null && this.id !== undefined) {
+    output.writeFieldBegin('id', Thrift.Type.STRING, 1);
+    output.writeString(this.id);
     output.writeFieldEnd();
   }
   output.writeFieldStop();
@@ -60,7 +154,7 @@ EchoService_echo_args.prototype.write = function(output) {
   return;
 };
 
-EchoService_echo_result = function(args) {
+EchoService_get_result = function(args) {
   this.success = null;
   if (args) {
     if (args.success !== undefined) {
@@ -68,8 +162,8 @@ EchoService_echo_result = function(args) {
     }
   }
 };
-EchoService_echo_result.prototype = {};
-EchoService_echo_result.prototype.read = function(input) {
+EchoService_get_result.prototype = {};
+EchoService_get_result.prototype.read = function(input) {
   input.readStructBegin();
   while (true)
   {
@@ -101,8 +195,8 @@ EchoService_echo_result.prototype.read = function(input) {
   return;
 };
 
-EchoService_echo_result.prototype.write = function(output) {
-  output.writeStructBegin('EchoService_echo_result');
+EchoService_get_result.prototype.write = function(output) {
+  output.writeStructBegin('EchoService_get_result');
   if (this.success !== null && this.success !== undefined) {
     output.writeFieldBegin('success', Thrift.Type.STRING, 0);
     output.writeString(this.success);
@@ -119,27 +213,28 @@ EchoServiceClient = function(input, output) {
     this.seqid = 0;
 };
 EchoServiceClient.prototype = {};
-EchoServiceClient.prototype.echo = function(str, callback) {
+EchoServiceClient.prototype.put = function(id, echoStr, callback) {
   if (callback === undefined) {
-    this.send_echo(str);
-    return this.recv_echo();
+    this.send_put(id, echoStr);
+    this.recv_put();
   } else {
-    var postData = this.send_echo(str, true);
+    var postData = this.send_put(id, echoStr, true);
     return this.output.getTransport()
-      .jqRequest(this, postData, arguments, this.recv_echo);
+      .jqRequest(this, postData, arguments, this.recv_put);
   }
 };
 
-EchoServiceClient.prototype.send_echo = function(str, callback) {
-  this.output.writeMessageBegin('echo', Thrift.MessageType.CALL, this.seqid);
-  var args = new EchoService_echo_args();
-  args.str = str;
+EchoServiceClient.prototype.send_put = function(id, echoStr, callback) {
+  this.output.writeMessageBegin('put', Thrift.MessageType.CALL, this.seqid);
+  var args = new EchoService_put_args();
+  args.id = id;
+  args.echoStr = echoStr;
   args.write(this.output);
   this.output.writeMessageEnd();
   return this.output.getTransport().flush(callback);
 };
 
-EchoServiceClient.prototype.recv_echo = function() {
+EchoServiceClient.prototype.recv_put = function() {
   var ret = this.input.readMessageBegin();
   var fname = ret.fname;
   var mtype = ret.mtype;
@@ -150,12 +245,49 @@ EchoServiceClient.prototype.recv_echo = function() {
     this.input.readMessageEnd();
     throw x;
   }
-  var result = new EchoService_echo_result();
+  var result = new EchoService_put_result();
+  result.read(this.input);
+  this.input.readMessageEnd();
+
+  return;
+};
+EchoServiceClient.prototype.get = function(id, callback) {
+  if (callback === undefined) {
+    this.send_get(id);
+    return this.recv_get();
+  } else {
+    var postData = this.send_get(id, true);
+    return this.output.getTransport()
+      .jqRequest(this, postData, arguments, this.recv_get);
+  }
+};
+
+EchoServiceClient.prototype.send_get = function(id, callback) {
+  this.output.writeMessageBegin('get', Thrift.MessageType.CALL, this.seqid);
+  var args = new EchoService_get_args();
+  args.id = id;
+  args.write(this.output);
+  this.output.writeMessageEnd();
+  return this.output.getTransport().flush(callback);
+};
+
+EchoServiceClient.prototype.recv_get = function() {
+  var ret = this.input.readMessageBegin();
+  var fname = ret.fname;
+  var mtype = ret.mtype;
+  var rseqid = ret.rseqid;
+  if (mtype == Thrift.MessageType.EXCEPTION) {
+    var x = new Thrift.TApplicationException();
+    x.read(this.input);
+    this.input.readMessageEnd();
+    throw x;
+  }
+  var result = new EchoService_get_result();
   result.read(this.input);
   this.input.readMessageEnd();
 
   if (null !== result.success) {
     return result.success;
   }
-  throw 'echo failed: unknown result';
+  throw 'get failed: unknown result';
 };

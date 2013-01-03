@@ -60,43 +60,13 @@
 			<version>${org.slf4j-version}</version>
 			<scope>runtime</scope>
 		</dependency>
-		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.15</version>
-			<exclusions>
-				<exclusion>
-					<groupId>javax.mail</groupId>
-					<artifactId>mail</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>javax.jms</groupId>
-					<artifactId>jms</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>com.sun.jdmk</groupId>
-					<artifactId>jmxtools</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>com.sun.jmx</groupId>
-					<artifactId>jmxri</artifactId>
-				</exclusion>
-			</exclusions>
-			<scope>runtime</scope>
-		</dependency>
 		<!-- @Inject -->
-		<dependency>
-			<groupId>javax.inject</groupId>
-			<artifactId>javax.inject</artifactId>
-			<version>1</version>
-		</dependency>
 
 		<!-- Servlet -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
-			<version>2.5</version>
-			<scope>provided</scope>
+			<version>3.0-alpha-1</version>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -117,16 +87,6 @@
 			<version>2.2.2</version>
 		</dependency>
 
-		<dependency>
-			<groupId>org.mybatis</groupId>
-			<artifactId>mybatis</artifactId>
-			<version>3.1.1</version>
-		</dependency>
-		<dependency>
-			<groupId>org.mybatis</groupId>
-			<artifactId>mybatis-spring</artifactId>
-			<version>1.1.1</version>
-		</dependency>
 		<dependency>
 			<groupId>commons-dbcp</groupId>
 			<artifactId>commons-dbcp</artifactId>
@@ -189,6 +149,11 @@
 			<artifactId>spring-orm</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.xerial</groupId>
+			<artifactId>sqlite-jdbc</artifactId>
+			<version>3.7.2</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
@@ -216,6 +181,7 @@
 					<stopKey>foo</stopKey>
 					<stopPort>9999</stopPort>
 					<contextPath>/</contextPath>
+					<webXml>${basedir}/src/main/webapp/WEB-INF/web-dev.xml</webXml>
 					<connectors>
 						<connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
 							<port>${jetty.web.port}</port>
@@ -262,12 +228,12 @@
 				<version>1.7</version>
 				<executions>
 					<execution>
+						<id>thrift-generate-sources</id>
+						<phase>generate-sources</phase>
 						<goals>
 							<goal>run</goal>
 						</goals>
-					</execution>
-				</executions>
-				<configuration>
+						<configuration>
 					<target>
 						<property name="exec.output" value="${basedir}/target/antrun/out.txt" />
 						<delete file="${exec.output}"></delete>
@@ -294,6 +260,8 @@
 					</target>
 
 				</configuration>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 		<pluginManagement>
@@ -309,7 +277,7 @@
 							<pluginExecutions>
 								<pluginExecution>
 									<pluginExecutionFilter>
-										<groupId>org.codehaus.mojo</groupId>
+										<groupId>org.apache.maven.plugins</groupId>
 										<artifactId>maven-antrun-plugin</artifactId>
 										<versionRange>[1.0,)</versionRange>
 										<goals>
@@ -327,4 +295,5 @@
 			</plugins>
 		</pluginManagement>
 	</build>
+	<description>- UI Component Framework : Kendo UI</description>
 </project>

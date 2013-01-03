@@ -1,13 +1,10 @@
 package com.solute.test.utils;
 
-import static org.mockito.Mockito.mock;
-
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.rules.MethodRule;
 import org.junit.rules.TestWatchman;
 import org.junit.runners.model.FrameworkMethod;
-import org.mockito.invocation.InvocationOnMock;
-import org.mockito.stubbing.Answer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.test.context.ContextConfiguration;
@@ -18,7 +15,13 @@ import org.springframework.test.context.junit4.AbstractTransactionalJUnit4Spring
 			"/META-INF/spring/test-context.xml" })
 public abstract class AbstractSpringBaseTest extends AbstractTransactionalJUnit4SpringContextTests {
 	private static long elapsedTime = 0;
-	private static final Logger logger = LoggerFactory.getLogger(AbstractSpringBaseTest.class); 
+	private static final Logger logger = LoggerFactory.getLogger(AbstractSpringBaseTest.class);
+	
+	@Before
+	public void setUp() {
+		
+	}
+	
 	@Rule public MethodRule watchman = new TestWatchman() {
 	    public void starting(FrameworkMethod method) {
 	      logger.info("{} being run...", method.getName());
@@ -45,14 +48,4 @@ public abstract class AbstractSpringBaseTest extends AbstractTransactionalJUnit4
 	    
 	  };
 	  
-	protected <T> T createSpringMock(final Class<T> cls) {
-		return mock(cls, new Answer<Object>() {
-			private T bean = applicationContext.getBean(cls);
-			@Override
-			public Object answer(InvocationOnMock invocation) throws Throwable {
-				return invocation.getMethod().invoke(bean, invocation.getArguments());
-			}
-			
-		});
-	}
 }

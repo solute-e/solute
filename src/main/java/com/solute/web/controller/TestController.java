@@ -20,8 +20,13 @@ public class TestController {
 	
 	private TProcessor echoServiceProcessor = new EchoService.Processor<EchoService.Iface>(new EchoService.Iface() {
 
-		public String echo(String str) throws TException {
-			return str;
+		public void put(String id, String echoStr) throws TException {
+			testDao.saveTestEcho(new TestEcho(id, echoStr));
+		}
+
+		public String get(String id) throws TException {
+			// TODO Auto-generated method stub
+			return null;
 		}
 		
 	});
