@@ -16,28 +16,10 @@ import com.solute.web.dao.TestDao;
 @RequestMapping("/thrift/test")
 public class TestController {
 	
-	private @Autowired TestDao testDao;
-	
-	private TProcessor echoServiceProcessor = new EchoService.Processor<EchoService.Iface>(new EchoService.Iface() {
-
-		public void put(String id, String echoStr) throws TException {
-			testDao.saveTestEcho(new TestEcho(id, echoStr));
-		}
-
-		public String get(String id) throws TException {
-			// TODO Auto-generated method stub
-			return null;
-		}
-		
-	});
-	
 	@RequestMapping(method=RequestMethod.GET)
 	public String get() {
 		return "/test/test";
 	}
 	
-	@RequestMapping(method=RequestMethod.POST)
-	public View post() {
-		return new ThriftView(echoServiceProcessor);
-	}
+	
 }

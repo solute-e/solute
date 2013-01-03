@@ -7,4 +7,5 @@ import com.solute.web.entity.TestEcho;
 public interface TestDao {
 	public void saveTestEcho(TestEcho testEcho);
 	public List<TestEcho> listTestEcho();
+	public TestEcho getTestEchoById(String id);
 }

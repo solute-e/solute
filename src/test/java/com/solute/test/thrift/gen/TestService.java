@@ -4,7 +4,7 @@
  * DO NOT EDIT UNLESS YOU ARE SURE THAT YOU KNOW WHAT YOU ARE DOING
  *  @generated
  */
-package com.solute.thrift.gen;
+package com.solute.test.thrift.gen;
 
 import org.apache.thrift.scheme.IScheme;
 import org.apache.thrift.scheme.SchemeFactory;
@@ -30,11 +30,11 @@ import java.util.Arrays;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class EchoService {
+public class TestService {
 
   public interface Iface {
 
-    public void put(String id, String echoStr) throws org.apache.thrift.TException;
+    public void put(String id, String str) throws org.apache.thrift.TException;
 
     public String get(String id) throws org.apache.thrift.TException;
 
@@ -42,7 +42,7 @@ public class EchoService {
 
   public interface AsyncIface {
 
-    public void put(String id, String echoStr, org.apache.thrift.async.AsyncMethodCallback<AsyncClient.put_call> resultHandler) throws org.apache.thrift.TException;
+    public void put(String id, String str, org.apache.thrift.async.AsyncMethodCallback<AsyncClient.put_call> resultHandler) throws org.apache.thrift.TException;
 
     public void get(String id, org.apache.thrift.async.AsyncMethodCallback<AsyncClient.get_call> resultHandler) throws org.apache.thrift.TException;
 
@@ -68,17 +68,17 @@ public class EchoService {
       super(iprot, oprot);
     }
 
-    public void put(String id, String echoStr) throws org.apache.thrift.TException
+    public void put(String id, String str) throws org.apache.thrift.TException
     {
-      send_put(id, echoStr);
+      send_put(id, str);
       recv_put();
     }
 
-    public void send_put(String id, String echoStr) throws org.apache.thrift.TException
+    public void send_put(String id, String str) throws org.apache.thrift.TException
     {
       put_args args = new put_args();
       args.setId(id);
-      args.setEchoStr(echoStr);
+      args.setStr(str);
       sendBase("put", args);
     }
 
@@ -130,27 +130,27 @@ public class EchoService {
       super(protocolFactory, clientManager, transport);
     }
 
-    public void put(String id, String echoStr, org.apache.thrift.async.AsyncMethodCallback<put_call> resultHandler) throws org.apache.thrift.TException {
+    public void put(String id, String str, org.apache.thrift.async.AsyncMethodCallback<put_call> resultHandler) throws org.apache.thrift.TException {
       checkReady();
-      put_call method_call = new put_call(id, echoStr, resultHandler, this, ___protocolFactory, ___transport);
+      put_call method_call = new put_call(id, str, resultHandler, this, ___protocolFactory, ___transport);
       this.___currentMethod = method_call;
       ___manager.call(method_call);
     }
 
     public static class put_call extends org.apache.thrift.async.TAsyncMethodCall {
       private String id;
-      private String echoStr;
-      public put_call(String id, String echoStr, org.apache.thrift.async.AsyncMethodCallback<put_call> resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws org.apache.thrift.TException {
+      private String str;
+      public put_call(String id, String str, org.apache.thrift.async.AsyncMethodCallback<put_call> resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws org.apache.thrift.TException {
         super(client, protocolFactory, transport, resultHandler, false);
         this.id = id;
-        this.echoStr = echoStr;
+        this.str = str;
       }
 
       public void write_args(org.apache.thrift.protocol.TProtocol prot) throws org.apache.thrift.TException {
         prot.writeMessageBegin(new org.apache.thrift.protocol.TMessage("put", org.apache.thrift.protocol.TMessageType.CALL, 0));
         put_args args = new put_args();
         args.setId(id);
-        args.setEchoStr(echoStr);
+        args.setStr(str);
         args.write(prot);
         prot.writeMessageEnd();
       }
@@ -230,7 +230,7 @@ public class EchoService {
 
       public put_result getResult(I iface, put_args args) throws org.apache.thrift.TException {
         put_result result = new put_result();
-        iface.put(args.id, args.echoStr);
+        iface.put(args.id, args.str);
         return result;
       }
     }
@@ -261,7 +261,7 @@ public class EchoService {
     private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("put_args");
 
     private static final org.apache.thrift.protocol.TField ID_FIELD_DESC = new org.apache.thrift.protocol.TField("id", org.apache.thrift.protocol.TType.STRING, (short)1);
-    private static final org.apache.thrift.protocol.TField ECHO_STR_FIELD_DESC = new org.apache.thrift.protocol.TField("echoStr", org.apache.thrift.protocol.TType.STRING, (short)2);
+    private static final org.apache.thrift.protocol.TField STR_FIELD_DESC = new org.apache.thrift.protocol.TField("str", org.apache.thrift.protocol.TType.STRING, (short)2);
 
     private static final Map<Class<? extends IScheme>, SchemeFactory> schemes = new HashMap<Class<? extends IScheme>, SchemeFactory>();
     static {
@@ -270,12 +270,12 @@ public class EchoService {
     }
 
     public String id; // required
-    public String echoStr; // required
+    public String str; // required
 
     /** The set of fields this struct contains, along with convenience methods for finding and manipulating them. */
     public enum _Fields implements org.apache.thrift.TFieldIdEnum {
       ID((short)1, "id"),
-      ECHO_STR((short)2, "echoStr");
+      STR((short)2, "str");
 
       private static final Map<String, _Fields> byName = new HashMap<String, _Fields>();
 
@@ -292,8 +292,8 @@ public class EchoService {
         switch(fieldId) {
           case 1: // ID
             return ID;
-          case 2: // ECHO_STR
-            return ECHO_STR;
+          case 2: // STR
+            return STR;
           default:
             return null;
         }
@@ -339,7 +339,7 @@ public class EchoService {
       Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(_Fields.class);
       tmpMap.put(_Fields.ID, new org.apache.thrift.meta_data.FieldMetaData("id", org.apache.thrift.TFieldRequirementType.DEFAULT, 
           new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
-      tmpMap.put(_Fields.ECHO_STR, new org.apache.thrift.meta_data.FieldMetaData("echoStr", org.apache.thrift.TFieldRequirementType.DEFAULT, 
+      tmpMap.put(_Fields.STR, new org.apache.thrift.meta_data.FieldMetaData("str", org.apache.thrift.TFieldRequirementType.DEFAULT, 
           new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
       metaDataMap = Collections.unmodifiableMap(tmpMap);
       org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(put_args.class, metaDataMap);
@@ -350,11 +350,11 @@ public class EchoService {
 
     public put_args(
       String id,
-      String echoStr)
+      String str)
     {
       this();
       this.id = id;
-      this.echoStr = echoStr;
+      this.str = str;
     }
 
     /**
@@ -364,8 +364,8 @@ public class EchoService {
       if (other.isSetId()) {
         this.id = other.id;
       }
-      if (other.isSetEchoStr()) {
-        this.echoStr = other.echoStr;
+      if (other.isSetStr()) {
+        this.str = other.str;
       }
     }
 
@@ -376,7 +376,7 @@ public class EchoService {
     @Override
     public void clear() {
       this.id = null;
-      this.echoStr = null;
+      this.str = null;
     }
 
     public String getId() {
@@ -403,27 +403,27 @@ public class EchoService {
       }
     }
 
-    public String getEchoStr() {
-      return this.echoStr;
+    public String getStr() {
+      return this.str;
     }
 
-    public put_args setEchoStr(String echoStr) {
-      this.echoStr = echoStr;
+    public put_args setStr(String str) {
+      this.str = str;
       return this;
     }
 
-    public void unsetEchoStr() {
-      this.echoStr = null;
+    public void unsetStr() {
+      this.str = null;
     }
 
-    /** Returns true if field echoStr is set (has been assigned a value) and false otherwise */
-    public boolean isSetEchoStr() {
-      return this.echoStr != null;
+    /** Returns true if field str is set (has been assigned a value) and false otherwise */
+    public boolean isSetStr() {
+      return this.str != null;
     }
 
-    public void setEchoStrIsSet(boolean value) {
+    public void setStrIsSet(boolean value) {
       if (!value) {
-        this.echoStr = null;
+        this.str = null;
       }
     }
 
@@ -437,11 +437,11 @@ public class EchoService {
         }
         break;
 
-      case ECHO_STR:
+      case STR:
         if (value == null) {
-          unsetEchoStr();
+          unsetStr();
         } else {
-          setEchoStr((String)value);
+          setStr((String)value);
         }
         break;
 
@@ -453,8 +453,8 @@ public class EchoService {
       case ID:
         return getId();
 
-      case ECHO_STR:
-        return getEchoStr();
+      case STR:
+        return getStr();
 
       }
       throw new IllegalStateException();
@@ -469,8 +469,8 @@ public class EchoService {
       switch (field) {
       case ID:
         return isSetId();
-      case ECHO_STR:
-        return isSetEchoStr();
+      case STR:
+        return isSetStr();
       }
       throw new IllegalStateException();
     }
@@ -497,12 +497,12 @@ public class EchoService {
           return false;
       }
 
-      boolean this_present_echoStr = true && this.isSetEchoStr();
-      boolean that_present_echoStr = true && that.isSetEchoStr();
-      if (this_present_echoStr || that_present_echoStr) {
-        if (!(this_present_echoStr && that_present_echoStr))
+      boolean this_present_str = true && this.isSetStr();
+      boolean that_present_str = true && that.isSetStr();
+      if (this_present_str || that_present_str) {
+        if (!(this_present_str && that_present_str))
           return false;
-        if (!this.echoStr.equals(that.echoStr))
+        if (!this.str.equals(that.str))
           return false;
       }
 
@@ -532,12 +532,12 @@ public class EchoService {
           return lastComparison;
         }
       }
-      lastComparison = Boolean.valueOf(isSetEchoStr()).compareTo(typedOther.isSetEchoStr());
+      lastComparison = Boolean.valueOf(isSetStr()).compareTo(typedOther.isSetStr());
       if (lastComparison != 0) {
         return lastComparison;
       }
-      if (isSetEchoStr()) {
-        lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.echoStr, typedOther.echoStr);
+      if (isSetStr()) {
+        lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.str, typedOther.str);
         if (lastComparison != 0) {
           return lastComparison;
         }
@@ -570,11 +570,11 @@ public class EchoService {
       }
       first = false;
       if (!first) sb.append(", ");
-      sb.append("echoStr:");
-      if (this.echoStr == null) {
+      sb.append("str:");
+      if (this.str == null) {
         sb.append("null");
       } else {
-        sb.append(this.echoStr);
+        sb.append(this.str);
       }
       first = false;
       sb.append(")");
@@ -628,10 +628,10 @@ public class EchoService {
                 org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
               }
               break;
-            case 2: // ECHO_STR
+            case 2: // STR
               if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
-                struct.echoStr = iprot.readString();
-                struct.setEchoStrIsSet(true);
+                struct.str = iprot.readString();
+                struct.setStrIsSet(true);
               } else { 
                 org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
               }
@@ -656,9 +656,9 @@ public class EchoService {
           oprot.writeString(struct.id);
           oprot.writeFieldEnd();
         }
-        if (struct.echoStr != null) {
-          oprot.writeFieldBegin(ECHO_STR_FIELD_DESC);
-          oprot.writeString(struct.echoStr);
+        if (struct.str != null) {
+          oprot.writeFieldBegin(STR_FIELD_DESC);
+          oprot.writeString(struct.str);
           oprot.writeFieldEnd();
         }
         oprot.writeFieldStop();
@@ -682,15 +682,15 @@ public class EchoService {
         if (struct.isSetId()) {
           optionals.set(0);
         }
-        if (struct.isSetEchoStr()) {
+        if (struct.isSetStr()) {
           optionals.set(1);
         }
         oprot.writeBitSet(optionals, 2);
         if (struct.isSetId()) {
           oprot.writeString(struct.id);
         }
-        if (struct.isSetEchoStr()) {
-          oprot.writeString(struct.echoStr);
+        if (struct.isSetStr()) {
+          oprot.writeString(struct.str);
         }
       }
 
@@ -703,8 +703,8 @@ public class EchoService {
           struct.setIdIsSet(true);
         }
         if (incoming.get(1)) {
-          struct.echoStr = iprot.readString();
-          struct.setEchoStrIsSet(true);
+          struct.str = iprot.readString();
+          struct.setStrIsSet(true);
         }
       }
     }

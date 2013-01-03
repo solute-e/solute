@@ -26,6 +26,10 @@ public class ThriftView extends AbstractUrlBasedView {
 	public ThriftView(TProcessor processor) {
 		this.processor = processor;
 	}
+	
+	public TProcessor getProcessor() {
+		return processor;
+	}
 
 	@Override
 	protected void renderMergedOutputModel(Map<String, Object> model, HttpServletRequest request,

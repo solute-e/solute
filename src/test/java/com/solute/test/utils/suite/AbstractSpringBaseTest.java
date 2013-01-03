@@ -1,12 +1,14 @@
-package com.solute.test.utils;
+package com.solute.test.utils.suite;
 
-import org.junit.Before;
+import java.lang.annotation.Annotation;
+
 import org.junit.Rule;
 import org.junit.rules.MethodRule;
 import org.junit.rules.TestWatchman;
 import org.junit.runners.model.FrameworkMethod;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 
@@ -17,11 +19,8 @@ public abstract class AbstractSpringBaseTest extends AbstractTransactionalJUnit4
 	private static long elapsedTime = 0;
 	private static final Logger logger = LoggerFactory.getLogger(AbstractSpringBaseTest.class);
 	
-	@Before
-	public void setUp() {
-		
-	}
 	
+
 	@Rule public MethodRule watchman = new TestWatchman() {
 	    public void starting(FrameworkMethod method) {
 	      logger.info("{} being run...", method.getName());
