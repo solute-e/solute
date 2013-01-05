@@ -15,8 +15,8 @@
 			class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer" >
 			<property name="locations">
 				<list>
-					<value>classpath:/META-INF/db/sqlite/jdbc.properties</value>
-					<value>classpath:/META-INF/db/sqlite/hibernate.properties</value>
+					<value>classpath:/META-INF/db/hsql/jdbc.properties</value>
+					<value>classpath:/META-INF/db/hsql/hibernate.properties</value>
 				</list>
 			</property>
 		</bean>

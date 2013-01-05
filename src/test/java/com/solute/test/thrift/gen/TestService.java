@@ -34,7 +34,7 @@ public class TestService {
 
   public interface Iface {
 
-    public void put(String id, String str) throws org.apache.thrift.TException;
+    public void put(String id) throws org.apache.thrift.TException;
 
     public String get(String id) throws org.apache.thrift.TException;
 
@@ -42,7 +42,7 @@ public class TestService {
 
   public interface AsyncIface {
 
-    public void put(String id, String str, org.apache.thrift.async.AsyncMethodCallback<AsyncClient.put_call> resultHandler) throws org.apache.thrift.TException;
+    public void put(String id, org.apache.thrift.async.AsyncMethodCallback<AsyncClient.put_call> resultHandler) throws org.apache.thrift.TException;
 
     public void get(String id, org.apache.thrift.async.AsyncMethodCallback<AsyncClient.get_call> resultHandler) throws org.apache.thrift.TException;
 
@@ -68,17 +68,16 @@ public class TestService {
       super(iprot, oprot);
     }
 
-    public void put(String id, String str) throws org.apache.thrift.TException
+    public void put(String id) throws org.apache.thrift.TException
     {
-      send_put(id, str);
+      send_put(id);
       recv_put();
     }
 
-    public void send_put(String id, String str) throws org.apache.thrift.TException
+    public void send_put(String id) throws org.apache.thrift.TException
     {
       put_args args = new put_args();
       args.setId(id);
-      args.setStr(str);
       sendBase("put", args);
     }
 
@@ -130,27 +129,24 @@ public class TestService {
       super(protocolFactory, clientManager, transport);
     }
 
-    public void put(String id, String str, org.apache.thrift.async.AsyncMethodCallback<put_call> resultHandler) throws org.apache.thrift.TException {
+    public void put(String id, org.apache.thrift.async.AsyncMethodCallback<put_call> resultHandler) throws org.apache.thrift.TException {
       checkReady();
-      put_call method_call = new put_call(id, str, resultHandler, this, ___protocolFactory, ___transport);
+      put_call method_call = new put_call(id, resultHandler, this, ___protocolFactory, ___transport);
       this.___currentMethod = method_call;
       ___manager.call(method_call);
     }
 
     public static class put_call extends org.apache.thrift.async.TAsyncMethodCall {
       private String id;
-      private String str;
-      public put_call(String id, String str, org.apache.thrift.async.AsyncMethodCallback<put_call> resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws org.apache.thrift.TException {
+      public put_call(String id, org.apache.thrift.async.AsyncMethodCallback<put_call> resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws org.apache.thrift.TException {
         super(client, protocolFactory, transport, resultHandler, false);
         this.id = id;
-        this.str = str;
       }
 
       public void write_args(org.apache.thrift.protocol.TProtocol prot) throws org.apache.thrift.TException {
         prot.writeMessageBegin(new org.apache.thrift.protocol.TMessage("put", org.apache.thrift.protocol.TMessageType.CALL, 0));
         put_args args = new put_args();
         args.setId(id);
-        args.setStr(str);
         args.write(prot);
         prot.writeMessageEnd();
       }
@@ -230,7 +226,7 @@ public class TestService {
 
       public put_result getResult(I iface, put_args args) throws org.apache.thrift.TException {
         put_result result = new put_result();
-        iface.put(args.id, args.str);
+        iface.put(args.id);
         return result;
       }
     }
@@ -261,7 +257,6 @@ public class TestService {
     private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("put_args");
 
     private static final org.apache.thrift.protocol.TField ID_FIELD_DESC = new org.apache.thrift.protocol.TField("id", org.apache.thrift.protocol.TType.STRING, (short)1);
-    private static final org.apache.thrift.protocol.TField STR_FIELD_DESC = new org.apache.thrift.protocol.TField("str", org.apache.thrift.protocol.TType.STRING, (short)2);
 
     private static final Map<Class<? extends IScheme>, SchemeFactory> schemes = new HashMap<Class<? extends IScheme>, SchemeFactory>();
     static {
@@ -270,12 +265,10 @@ public class TestService {
     }
 
     public String id; // required
-    public String str; // required
 
     /** The set of fields this struct contains, along with convenience methods for finding and manipulating them. */
     public enum _Fields implements org.apache.thrift.TFieldIdEnum {
-      ID((short)1, "id"),
-      STR((short)2, "str");
+      ID((short)1, "id");
 
       private static final Map<String, _Fields> byName = new HashMap<String, _Fields>();
 
@@ -292,8 +285,6 @@ public class TestService {
         switch(fieldId) {
           case 1: // ID
             return ID;
-          case 2: // STR
-            return STR;
           default:
             return null;
         }
@@ -339,8 +330,6 @@ public class TestService {
       Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(_Fields.class);
       tmpMap.put(_Fields.ID, new org.apache.thrift.meta_data.FieldMetaData("id", org.apache.thrift.TFieldRequirementType.DEFAULT, 
           new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
-      tmpMap.put(_Fields.STR, new org.apache.thrift.meta_data.FieldMetaData("str", org.apache.thrift.TFieldRequirementType.DEFAULT, 
-          new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
       metaDataMap = Collections.unmodifiableMap(tmpMap);
       org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(put_args.class, metaDataMap);
     }
@@ -349,12 +338,10 @@ public class TestService {
     }
 
     public put_args(
-      String id,
-      String str)
+      String id)
     {
       this();
       this.id = id;
-      this.str = str;
     }
 
     /**
@@ -363,9 +350,6 @@ public class TestService {
     public put_args(put_args other) {
       if (other.isSetId()) {
         this.id = other.id;
-      }
-      if (other.isSetStr()) {
-        this.str = other.str;
       }
     }
 
@@ -376,7 +360,6 @@ public class TestService {
     @Override
     public void clear() {
       this.id = null;
-      this.str = null;
     }
 
     public String getId() {
@@ -403,30 +386,6 @@ public class TestService {
       }
     }
 
-    public String getStr() {
-      return this.str;
-    }
-
-    public put_args setStr(String str) {
-      this.str = str;
-      return this;
-    }
-
-    public void unsetStr() {
-      this.str = null;
-    }
-
-    /** Returns true if field str is set (has been assigned a value) and false otherwise */
-    public boolean isSetStr() {
-      return this.str != null;
-    }
-
-    public void setStrIsSet(boolean value) {
-      if (!value) {
-        this.str = null;
-      }
-    }
-
     public void setFieldValue(_Fields field, Object value) {
       switch (field) {
       case ID:
@@ -437,14 +396,6 @@ public class TestService {
         }
         break;
 
-      case STR:
-        if (value == null) {
-          unsetStr();
-        } else {
-          setStr((String)value);
-        }
-        break;
-
       }
     }
 
@@ -452,9 +403,6 @@ public class TestService {
       switch (field) {
       case ID:
         return getId();
-
-      case STR:
-        return getStr();
 
       }
       throw new IllegalStateException();
@@ -469,8 +417,6 @@ public class TestService {
       switch (field) {
       case ID:
         return isSetId();
-      case STR:
-        return isSetStr();
       }
       throw new IllegalStateException();
     }
@@ -494,15 +440,6 @@ public class TestService {
         if (!(this_present_id && that_present_id))
           return false;
         if (!this.id.equals(that.id))
-          return false;
-      }
-
-      boolean this_present_str = true && this.isSetStr();
-      boolean that_present_str = true && that.isSetStr();
-      if (this_present_str || that_present_str) {
-        if (!(this_present_str && that_present_str))
-          return false;
-        if (!this.str.equals(that.str))
           return false;
       }
 
@@ -532,16 +469,6 @@ public class TestService {
           return lastComparison;
         }
       }
-      lastComparison = Boolean.valueOf(isSetStr()).compareTo(typedOther.isSetStr());
-      if (lastComparison != 0) {
-        return lastComparison;
-      }
-      if (isSetStr()) {
-        lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.str, typedOther.str);
-        if (lastComparison != 0) {
-          return lastComparison;
-        }
-      }
       return 0;
     }
 
@@ -567,14 +494,6 @@ public class TestService {
         sb.append("null");
       } else {
         sb.append(this.id);
-      }
-      first = false;
-      if (!first) sb.append(", ");
-      sb.append("str:");
-      if (this.str == null) {
-        sb.append("null");
-      } else {
-        sb.append(this.str);
       }
       first = false;
       sb.append(")");
@@ -628,14 +547,6 @@ public class TestService {
                 org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
               }
               break;
-            case 2: // STR
-              if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
-                struct.str = iprot.readString();
-                struct.setStrIsSet(true);
-              } else { 
-                org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
-              }
-              break;
             default:
               org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
           }
@@ -654,11 +565,6 @@ public class TestService {
         if (struct.id != null) {
           oprot.writeFieldBegin(ID_FIELD_DESC);
           oprot.writeString(struct.id);
-          oprot.writeFieldEnd();
-        }
-        if (struct.str != null) {
-          oprot.writeFieldBegin(STR_FIELD_DESC);
-          oprot.writeString(struct.str);
           oprot.writeFieldEnd();
         }
         oprot.writeFieldStop();
@@ -682,29 +588,19 @@ public class TestService {
         if (struct.isSetId()) {
           optionals.set(0);
         }
-        if (struct.isSetStr()) {
-          optionals.set(1);
-        }
-        oprot.writeBitSet(optionals, 2);
+        oprot.writeBitSet(optionals, 1);
         if (struct.isSetId()) {
           oprot.writeString(struct.id);
-        }
-        if (struct.isSetStr()) {
-          oprot.writeString(struct.str);
         }
       }
 
       @Override
       public void read(org.apache.thrift.protocol.TProtocol prot, put_args struct) throws org.apache.thrift.TException {
         TTupleProtocol iprot = (TTupleProtocol) prot;
-        BitSet incoming = iprot.readBitSet(2);
+        BitSet incoming = iprot.readBitSet(1);
         if (incoming.get(0)) {
           struct.id = iprot.readString();
           struct.setIdIsSet(true);
-        }
-        if (incoming.get(1)) {
-          struct.str = iprot.readString();
-          struct.setStrIsSet(true);
         }
       }
     }

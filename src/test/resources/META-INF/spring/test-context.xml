@@ -20,5 +20,8 @@
  	 
  	 <bean class="org.springframework.mock.web.MockHttpServletRequest"></bean>
  	 <bean class="org.springframework.mock.web.MockHttpServletResponse"></bean>
- 	 <bean class="org.springframework.mock.web.MockServletContext" />
+ 	 <bean class="org.springframework.mock.web.MockServletContext">
+ 	 	<constructor-arg name="resourceBasePath" value="src/main/webapp"></constructor-arg>
+ 	 </bean>
+ 	 
 </beans>

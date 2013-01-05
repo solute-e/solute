@@ -11,7 +11,7 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 public class AttributeInterceptor extends HandlerInterceptorAdapter {
 	
-	private static final Logger logger = LoggerFactory.getLogger(AttributeInterceptor.class);
+	private final Logger logger = LoggerFactory.getLogger(AttributeInterceptor.class);
 	
 	private @Autowired ServletContext sc;
 

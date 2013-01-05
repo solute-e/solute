@@ -11,7 +11,7 @@ import com.solute.utils.annotation.ThriftService;
 public class TestServiceHandler implements TestService.Iface {
 
 	@Override
-	public void put(String id, String str) throws TException {
+	public void put(String id) throws TException {
 		// TODO Auto-generated method stub
 		
 	}

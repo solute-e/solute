@@ -13,7 +13,7 @@
      <import resource="classpath:/META-INF/spring/config-context.xml" />
 
 	<bean id="sessionFactory"
-		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean" >
 		<property name="dataSource" ref="dataSource" />
 		<property name="packagesToScan" value="${packagesToScan}" />
 		<property name="hibernateProperties">
@@ -27,7 +27,6 @@
             </props>
 		</property>
 	</bean>
-
 
 	<bean id="transactionManager"
 		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
