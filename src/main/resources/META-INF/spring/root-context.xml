@@ -14,12 +14,12 @@
 
 
 	<!-- Root Context: defines shared resources visible to all other web components -->
-	<bean id="viewResolver"
-		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
-		<property name="viewClass">
-			<value>
-				org.springframework.web.servlet.view.tiles2.TilesView
-			</value>
+	<bean class="org.springframework.context.support.ResourceBundleMessageSource"
+		id="messageSource">
+		<property name="basenames">
+			<list>
+				<value>classpath:/META-INF/i18n/messages-${message.lang}</value>
+			</list>
 		</property>
 	</bean>
 
