@@ -20,5 +20,5 @@ import org.springframework.stereotype.Component;
 @Documented
 @Component
 public @interface ThriftService {
-	String value() default "";
+	String value();
 }
