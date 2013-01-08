@@ -17,7 +17,6 @@
 				<list>
 					<value>classpath:/META-INF/config/hsql/jdbc.properties</value>
 					<value>classpath:/META-INF/config/hsql/hibernate.properties</value>
-					<value>classpath:/META-INF/config/config.properties</value>
 				</list>
 			</property>
 		</bean>
@@ -30,7 +29,6 @@
 				<list>
 					<value>classpath:/META-INF/config/mysql/jdbc.properties</value>
 					<value>classpath:/META-INF/config/mysql/hibernate.properties</value>
-					<value>classpath:/META-INF/config/config.properties</value>
 				</list>
 			</property>
 		</bean>

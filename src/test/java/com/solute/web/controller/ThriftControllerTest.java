@@ -6,21 +6,13 @@ import java.lang.reflect.InvocationTargetException;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
-import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.solute.test.utils.suite.AbstractSpringBaseTest;
 import com.solute.utils.view.ThriftView;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@ActiveProfiles("dev")
-@ContextConfiguration({ "classpath:/META-INF/spring/root-context.xml", "classpath:/META-INF/spring/test-context.xml",
-		"classpath:/META-INF/spring/hibernate-context.xml", "classpath:/META-INF/spring/config-context.xml",
-		"classpath:/META-INF/spring/appServlet/servlet-context.xml" })
-public class ThriftControllerTest {
+public class ThriftControllerTest extends AbstractSpringBaseTest {
 
 	@Autowired
 	private ThriftController controller;

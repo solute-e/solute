@@ -1,7 +1,6 @@
 package jdk.java.lang;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.RETURNS_DEEP_STUBS;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Inherited;
@@ -52,7 +51,7 @@ public class AnnotationTest {
 		}
 	}
 	
-	@Test
+	@Test(expected=NullPointerException.class)
 	public void testB() {
 		B b = new B();
 		

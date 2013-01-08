@@ -13,16 +13,6 @@
 	<import resource="classpath:/META-INF/spring/config-context.xml" />
 
 
-	<!-- Root Context: defines shared resources visible to all other web components -->
-	<bean class="org.springframework.context.support.ReloadableResourceBundleMessageSource"
-		id="messageSource">
-		<property name="basenames">
-			<list>
-				<value>classpath:/META-INF/i18n/messages</value>
-			</list>
-		</property>
-		<property name="defaultEncoding" value="UTF-8" />
-	</bean>
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources 
 		in the /WEB-INF/views directory -->
@@ -33,18 +23,44 @@
 		<property name="contentType" value="text/html; charset=UTF-8" />
 	</bean>
 
-	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
-		destroy-method="close">
-		<property name="driverClassName" value="${jdbc.driver}" />
-		<property name="url" value="${jdbc.url}" />
-		<property name="username" value="${jdbc.user}" />
-		<property name="password" value="${jdbc.password}" />
-	</bean>
-
 	<bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<property name="defaultEncoding" value="utf-8" />
 		<property name="maxUploadSize" value="100000000" />
+	</bean>
+	
+	<bean id="messageSource"
+		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="basenames">
+			<list>
+				<value>classpath:/META-INF/i18n/messages</value>
+			</list>
+		</property>
+		<property name="defaultEncoding" value="UTF-8" />
+	</bean>
+
+	<!-- Locale Change Interceptor and Resolver definition -->
+	<bean id="localeChangeInterceptor"
+		class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+		<property name="paramName" value="lang" />
+	</bean>
+	<bean id="localeResolver"
+		class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
+	</bean>
+
+	<bean id="themeSource"
+		class="org.springframework.ui.context.support.ResourceBundleThemeSource">
+		<property name="basenamePrefix" value="/META-INF/themes/theme-" />
+	</bean>
+
+	<!-- Theme Change Interceptor and Resolver definition -->
+	<bean id="themeChangeInterceptor"
+		class="org.springframework.web.servlet.theme.ThemeChangeInterceptor">
+		<property name="paramName" value="theme" />
+	</bean>
+	<bean id="themeResolver"
+		class="org.springframework.web.servlet.theme.CookieThemeResolver">
+		<property name="defaultThemeName" value="default" />
 	</bean>
 
 	<!-- <jdbc:initialize-database data-source="dataSource" ignore-failures="ALL"> 

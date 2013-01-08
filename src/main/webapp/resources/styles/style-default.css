@@ -1,0 +1,14 @@
+@CHARSET "UTF-8";
+
+@IMPORT url("kendo/kendo.default.css");
+
+body {
+	font-family: "맑은 고딕", 'Malgun Gothic', 'dotum';
+	font-size: 12px;
+	font-weight: normal;
+}
+
+a:link {color: blue; text-decoration: none;}
+a:visited {color: red; text-decoration: none;}
+a:active {color: green; font-weight: bold}
+a:hover {color: orange; font-weight: bold; text-shadow: black;}

@@ -10,17 +10,19 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+import org.springframework.web.servlet.i18n.CookieLocaleResolver;
 
 public class AttributeInterceptor extends HandlerInterceptorAdapter {
 	
 	private final Logger logger = LoggerFactory.getLogger(AttributeInterceptor.class);
 	
 	private @Autowired ServletContext sc;
+	private @Autowired CookieLocaleResolver localeResolver;
 
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 		String cp = sc.getContextPath();
-		Locale locale = request.getLocale();
+		Locale locale = localeResolver.resolveLocale(request);
 		
 		request.setAttribute("webappRoot", cp);
 		request.setAttribute("lang", locale.getLanguage());
