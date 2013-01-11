@@ -7,9 +7,15 @@
 <head>
 <meta charset="utf-8" />
 <title>Solute</title>
-
 </head>
 <body>
-
+<header class="s_front s_header">
+	<div class="s_front s_header_top">
+	</div>
+	<div class="s_front s_header_body">
+	</div>
+</header>
+<div class="s_front s_body">
+</div>
 </body>
 </html>

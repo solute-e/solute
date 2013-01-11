@@ -27,11 +27,6 @@ public class ThriftController {
 	private Map<String, TProcessor> thriftProcessors = new HashMap<String, TProcessor>();
 	private @Autowired ApplicationContext context;
 	
-	@RequestMapping(method=RequestMethod.GET)
-	public String get() {
-		return "/test/test";
-	}
-	
 	@RequestMapping(value="/thrift/${name}", method=RequestMethod.POST)
 	public View getThriftService(@PathVariable String name) throws IllegalArgumentException, SecurityException, InstantiationException, IllegalAccessException, InvocationTargetException, NoSuchMethodException, ClassNotFoundException, InterruptedException {
 		if (!thriftProcessors.containsKey(name)) {
