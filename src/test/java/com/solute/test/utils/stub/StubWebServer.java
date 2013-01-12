@@ -12,7 +12,7 @@ public class StubWebServer {
         WebAppContext context = new WebAppContext();
         context.setDescriptor("src/main/webapp/WEB-INF/web.xml");
         context.setResourceBase("src/main/webapp");
-        context.setContextPath("/");
+        context.setContextPath("/solute");
         context.setParentLoaderPriority(true);
  
         server.setHandler(context);
