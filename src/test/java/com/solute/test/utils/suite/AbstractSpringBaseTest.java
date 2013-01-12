@@ -14,7 +14,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ActiveProfiles("dev")
-@ContextConfiguration({ "classpath:/META-INF/spring/root-context.xml", "classpath:/META-INF/spring/test-context.xml",
+@ContextConfiguration({ "classpath:/META-INF/spring/root-context.xml", "classpath:/META-INF/spring/test/test-context.xml",
 		"classpath:/META-INF/spring/dao-context.xml", "classpath:/META-INF/spring/config-context.xml",
 		"classpath:/META-INF/spring/appServlet/servlet-context.xml" })
 public abstract class AbstractSpringBaseTest {
