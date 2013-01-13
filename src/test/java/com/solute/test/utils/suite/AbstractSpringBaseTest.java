@@ -14,9 +14,11 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ActiveProfiles("dev")
-@ContextConfiguration({ "classpath:/META-INF/spring/root-context.xml", "classpath:/META-INF/spring/test/test-context.xml",
-		"classpath:/META-INF/spring/dao-context.xml", "classpath:/META-INF/spring/config-context.xml",
-		"classpath:/META-INF/spring/appServlet/servlet-context.xml" })
+@ContextConfiguration({ "file:src/main/webapp/WEB-INF/spring/root-context.xml",
+		"classpath:/META-INF/spring/test/test-context.xml",
+		"file:src/main/webapp/WEB-INF/spring/dao-context.xml",
+		"file:src/main/webapp/WEB-INF/spring/config-context.xml",
+		"file:src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml" })
 public abstract class AbstractSpringBaseTest {
 	private static long elapsedTime = 0;
 	private static Logger logger = LoggerFactory.getLogger(AbstractSpringBaseTest.class);
