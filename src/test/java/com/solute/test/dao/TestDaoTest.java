@@ -1,14 +1,8 @@
 package com.solute.test.dao;
 
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.reset;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.List;
-
+import com.solute.test.dao.impl.TestDaoImpl;
+import com.solute.test.utils.suite.AbstractSpringBaseTest;
+import com.solute.web.entity.TestEntity;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -21,9 +15,9 @@ import org.mockito.stubbing.Answer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.ReflectionUtils;
 
-import com.solute.test.dao.impl.TestDaoImpl;
-import com.solute.test.utils.suite.AbstractSpringBaseTest;
-import com.solute.web.entity.TestEntity;
+import java.lang.reflect.Field;
+
+import static org.mockito.Mockito.*;
 
 public class TestDaoTest extends AbstractSpringBaseTest {
 	

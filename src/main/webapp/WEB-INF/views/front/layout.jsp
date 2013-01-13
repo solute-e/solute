@@ -8,6 +8,7 @@
 <meta charset="utf-8" />
 <title>Solute</title>
 </head>
+<tiles:insertAttribute name="body" />
 <body>
 <header class="s_front s_header">
 	<div class="s_front s_header_top">

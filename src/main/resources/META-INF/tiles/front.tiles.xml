@@ -3,12 +3,12 @@
 "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
 "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
 <tiles-definitions>
-	<definition name="front/*.tiles" template="/WEB-INF/views/front/layout.jsp">
+	<definition name="front.tiles" template="/WEB-INF/views/front/layout.jsp">
 		<put-attribute name="title" value="Solute" />
 		<put-attribute name="commons" value="" />
 		<put-attribute name="header" value="" />
 		<put-attribute name="menu" value="" />
-		<put-attribute name="body" value="" />
+		<put-attribute name="body" value="/WEB-INF/views/front/${body}.jsp" />
 		<put-attribute name="footer" value="" />
 	</definition>
 	<definition name="base.sso" template="/WEB-INF/views/sso/template/layout.jsp">

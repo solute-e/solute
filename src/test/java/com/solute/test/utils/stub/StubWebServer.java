@@ -1,13 +1,13 @@
 package com.solute.test.utils.stub;
 
-import static org.junit.Assert.assertNotNull;
-
 import org.mortbay.jetty.Connector;
 import org.mortbay.jetty.Handler;
 import org.mortbay.jetty.Server;
 import org.mortbay.jetty.handler.ContextHandlerCollection;
 import org.mortbay.jetty.nio.SelectChannelConnector;
 import org.mortbay.jetty.webapp.WebAppContext;
+
+import static org.junit.Assert.assertNotNull;
 
 public class StubWebServer {
 	private Server server;

@@ -1,14 +1,13 @@
 package org.springframework.test;
 
-import static org.junit.Assert.assertEquals;
-
-import java.util.Locale;
-
+import com.solute.test.utils.suite.AbstractSpringBaseTest;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 
-import com.solute.test.utils.suite.AbstractSpringBaseTest;
+import java.util.Locale;
+
+import static org.junit.Assert.assertEquals;
 
 public class MessageSourceTest extends AbstractSpringBaseTest {
 	@Autowired

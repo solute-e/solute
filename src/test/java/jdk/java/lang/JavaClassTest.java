@@ -1,8 +1,8 @@
 package jdk.java.lang;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 public class JavaClassTest {
 	public static class A {

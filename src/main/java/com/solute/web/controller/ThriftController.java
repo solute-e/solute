@@ -1,9 +1,7 @@
 package com.solute.web.controller;
 
-import java.lang.reflect.InvocationTargetException;
-import java.util.HashMap;
-import java.util.Map;
-
+import com.solute.utils.annotation.ThriftService;
+import com.solute.utils.view.ThriftView;
 import org.apache.thrift.TProcessor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,8 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.View;
 
-import com.solute.utils.annotation.ThriftService;
-import com.solute.utils.view.ThriftView;
+import java.lang.reflect.InvocationTargetException;
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 public class ThriftController {

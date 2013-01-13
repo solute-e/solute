@@ -1,15 +1,16 @@
 package com.solute.test.utils.suite;
 
+import com.solute.test.utils.stub.StubWebServer;
 import org.junit.Rule;
 import org.junit.rules.ExternalResource;
 import org.junit.rules.MethodRule;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.solute.test.utils.stub.StubWebServer;
-
 public class AbstractStubWebServerTest {
 	private final Logger logger = LoggerFactory.getLogger(getClass());
+
+    protected static final int PORT = 8080;
 	protected StubWebServer server;
 	
 	@Rule
@@ -17,7 +18,7 @@ public class AbstractStubWebServerTest {
 		public void before() {
 			try {
 				server = new StubWebServer();
-				server.serve(8080);
+				server.serve(PORT);
 			} catch(Exception e) {
 				logger.error(e.getMessage(), e);
 				throw new RuntimeException();

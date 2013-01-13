@@ -1,10 +1,9 @@
 package com.solute.test.thrift.impl;
 
-import org.apache.thrift.TException;
-import org.springframework.context.annotation.Profile;
-
 import com.solute.test.thrift.gen.TestService;
 import com.solute.utils.annotation.ThriftService;
+import org.apache.thrift.TException;
+import org.springframework.context.annotation.Profile;
 
 @ThriftService("test")
 @Profile("dev")

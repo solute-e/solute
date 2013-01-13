@@ -1,13 +1,5 @@
 package com.solute.utils.view;
 
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.Map;
-
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import org.apache.thrift.TException;
 import org.apache.thrift.TProcessor;
 import org.apache.thrift.protocol.TJSONProtocol;
@@ -16,6 +8,12 @@ import org.apache.thrift.protocol.TProtocolFactory;
 import org.apache.thrift.transport.TIOStreamTransport;
 import org.apache.thrift.transport.TTransport;
 import org.springframework.web.servlet.view.AbstractUrlBasedView;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.Map;
 
 
 public class ThriftView extends AbstractUrlBasedView {

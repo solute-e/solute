@@ -1,16 +1,15 @@
 package com.solute.web.controller;
 
-import static org.junit.Assert.assertNotNull;
-
-import java.lang.reflect.InvocationTargetException;
-
+import com.solute.test.utils.suite.AbstractSpringBaseTest;
+import com.solute.utils.view.ThriftView;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 
-import com.solute.test.utils.suite.AbstractSpringBaseTest;
-import com.solute.utils.view.ThriftView;
+import java.lang.reflect.InvocationTargetException;
+
+import static org.junit.Assert.assertNotNull;
 
 public class ThriftControllerTest extends AbstractSpringBaseTest {
 
