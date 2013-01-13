@@ -11,12 +11,12 @@
 <tiles:insertAttribute name="body" />
 <body>
 <header class="s_front s_header">
-	<div class="s_front s_header_top">
-	</div>
-	<div class="s_front s_header_body">
-	</div>
+	<tiles:insertAttribute name="header" />
 </header>
 <div class="s_front s_body">
 </div>
+<footer class="s_front s_footer">
+    <tiles:insertAttribute name="footer" />
+</footer>
 </body>
 </html>

@@ -14,7 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
  */
 
 @Controller
-@RequestMapping(value = "/Front")
+@RequestMapping(value = "/front")
 public class FrontTestController {
 
     @RequestMapping(method = RequestMethod.GET)
