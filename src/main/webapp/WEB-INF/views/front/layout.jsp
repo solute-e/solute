@@ -5,18 +5,21 @@
 <!DOCTYPE HTML>
 <html lang="${lang}">
 <head>
-<meta charset="utf-8" />
-<title>Solute</title>
+    <meta charset="utf-8" />
+    <title><tiles:insertAttribute name="title" /></title>
+    <tiles:insertAttribute name="commons" />
 </head>
-<tiles:insertAttribute name="body" />
 <body>
-<header class="s_front s_header">
-	<tiles:insertAttribute name="header" />
-</header>
-<div class="s_front s_body">
+<div class="s-front">
+    <header class="s-front-header">
+        <tiles:insertAttribute name="header" />
+    </header>
+    <div class="s-front-body">
+        <tiles:insertAttribute name="body" />
+    </div>
+    <footer class="s-front-footer">
+        <tiles:insertAttribute name="footer" />
+    </footer>
 </div>
-<footer class="s_front s_footer">
-    <tiles:insertAttribute name="footer" />
-</footer>
 </body>
 </html>
