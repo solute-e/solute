@@ -11,15 +11,17 @@
 </head>
 <body>
 <div class="s-front">
-    <header class="s-front-header">
-        <tiles:insertAttribute name="header" />
-    </header>
-    <div class="s-front-body">
-        <tiles:insertAttribute name="body" />
+    <div class="s-front-wrap">
+        <header class="s-front-header">
+            <tiles:insertAttribute name="header" />
+        </header>
+        <div class="s-front-body">
+            <tiles:insertAttribute name="body" />
+        </div>
+        <footer class="s-front-footer">
+            <tiles:insertAttribute name="footer" />
+        </footer>
     </div>
-    <footer class="s-front-footer">
-        <tiles:insertAttribute name="footer" />
-    </footer>
 </div>
 </body>
 </html>

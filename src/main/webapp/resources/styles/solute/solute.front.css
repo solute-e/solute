@@ -1,3 +1,15 @@
-.s-front {
+@charset "utf-8";
 
+.s-front {
+    text-align: center;
+    padding-top: 1%;
+}
+
+.s-front > .s-front-wrap {
+    display: inline-block;
+    width: 50%;
+}
+
+.s-front .s-front-header {
+    border-color: #ffc0cb;
 }
