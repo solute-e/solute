@@ -53,6 +53,11 @@
 		class="org.springframework.web.servlet.theme.CookieThemeResolver">
 		<property name="defaultThemeName" value="default" />
 	</bean>
+	
+	<bean id="propertiesAttributeInterceptor" class="com.solute.utils.interceptors.PropertiesAttributeInterceptor">
+		<property name="propertiesFile" value="classpath:/META-INF/attr.properties" />
+		<property name="encoding" value="UTF-8" />
+	</bean>
 
 	<!-- <jdbc:initialize-database data-source="dataSource" ignore-failures="ALL"> 
 		<jdbc:script location="classpath:/META-INF/db/db-schema.sql"/> </jdbc:initialize-database> -->

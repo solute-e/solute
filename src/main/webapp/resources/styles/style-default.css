@@ -1,7 +1,7 @@
 @CHARSET "UTF-8";
 
 @IMPORT url("kendo/kendo.default.css");
-@IMPORT url("solute/solute.front.css");
+@IMPORT url("solute/solute.joinpage.css");
 
 body {
 	font-family: "맑은 고딕", 'Malgun Gothic', 'dotum';
