@@ -37,10 +37,6 @@
 			<mvc:mapping path="/**/*" />
 			<beans:ref bean="themeChangeInterceptor" />
 		</mvc:interceptor>
-		<mvc:interceptor>
-			<mvc:mapping path="/**/*" />
-			<beans:ref bean="propertiesAttributeInterceptor" />
-		</mvc:interceptor>
 	</mvc:interceptors>
 
 

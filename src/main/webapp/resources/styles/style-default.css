@@ -7,6 +7,9 @@ body {
 	font-family: "맑은 고딕", 'Malgun Gothic', 'dotum';
 	font-size: 12px;
 	font-weight: normal;
+    margin: 0px;
+    top: 0px;
+    left: 0px;
 }
 
 a:link {color: blue; text-decoration: none;}

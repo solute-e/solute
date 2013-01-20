@@ -1,17 +1,20 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <div class="s-header-wrap">
-    <hgroup class="s-header-group">
-    	<h1>${attr.project.name}</h1>
-    	<h2>
+    <ul class="s-header-list">
+        <li role="title">
+            <spring:message code="project.name.default" />
+        </li>
+    	<li role="">
     		<input type="text" value="" />
-    	</h2>
-    	<h3>
+    	</li>
+    	<li>
     		<input type="text" value="" />
-    	</h3>
-    	<h4>
+    	</li>
+    	<li>
     		<button>?</button>
-    	</h4>
-    	<h5>문제기부하기</h5>
-    </hgroup>
+    	</li>
+    	<li>문제기부하기</li>
+    </ul>
 </div>

@@ -6,13 +6,13 @@
 <html lang="${lang}">
 <head>
     <meta charset="utf-8" />
-    <title><tiles:insertAttribute name="title" /></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title><spring:message code="project.name.firstlarge" /></title>
     <tiles:insertAttribute name="commons" />
 </head>
 <body>
 <div class="s-joinpage">
     <div class="s-joinpage-wrap">
-    <!-- 
         <header class="s-joinpage-header">
             <tiles:insertAttribute name="header" />
         </header>
@@ -22,7 +22,6 @@
         <footer class="s-joinpage-footer">
             <tiles:insertAttribute name="footer" />
         </footer>
-      -->
     </div>
 </div>
 </body>

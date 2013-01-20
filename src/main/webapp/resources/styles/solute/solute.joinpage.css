@@ -1,10 +1,7 @@
 @charset "utf-8";
 
-.s-front {
-    text-align: center;
-}
+@IMPORT url("solute.joinpage.header.css");
 
-.s-front .s-header-wrap {
-    height: 20px;
-    background-color: #ffc0cb;
+.s-joinpage {
+    text-align: center;
 }

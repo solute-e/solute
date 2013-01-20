@@ -11,9 +11,8 @@
         <put-attribute name="content" expression="" />
     </definition>
 	<definition name="joinpage.tiles" template="/WEB-INF/views/joinpage/layout.jsp">
-		<put-attribute name="title" expression="${attr_project_name}" />
 		<put-attribute name="commons" value="/WEB-INF/views/joinpage/commons.jsp" />
-       <put-attribute name="header" value="joinpage.header.tiles" />
+        <put-attribute name="header" value="joinpage.header.tiles" />
 		<put-attribute name="body" value="joinpage.body.tiles" />
 		<put-attribute name="footer" value="" />
 	</definition>
