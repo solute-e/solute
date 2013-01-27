@@ -17,7 +17,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 		"classpath:/META-INF/spring/test/test-context.xml",
 		"file:src/main/webapp/WEB-INF/spring/dao-context.xml",
 		"file:src/main/webapp/WEB-INF/spring/config-context.xml",
-		"file:src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml" })
+        "file:src/main/webapp/WEB-INF/spring/mvc/servlet-context.xml"})
 public abstract class AbstractSpringBaseTest {
 	private static long elapsedTime = 0;
 	private static Logger logger = LoggerFactory.getLogger(AbstractSpringBaseTest.class);

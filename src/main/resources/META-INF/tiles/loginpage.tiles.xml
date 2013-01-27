@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+"-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+"http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+    <definition name="loginpage.header.tiles" template="/WEB-INF/views/loginpage/header/layout.jsp">
+        <put-attribute name="content" value="header_content" />
+    </definition>
+    <definition name="loginpage.body.tiles" template="/WEB-INF/views/loginpage/body/layout.jsp">
+        <put-attribute name="left" value="" />
+        <put-attribute name="content" expression="" />
+    </definition>
+	<definition name="loginpage.tiles" template="/WEB-INF/views/loginpage/layout.jsp">
+		<put-attribute name="commons" value="/WEB-INF/views/loginpage/commons.jsp" />
+        <put-attribute name="header" value="loginpage.header.tiles" />
+		<put-attribute name="body" value="loginpage.body.tiles" />
+		<put-attribute name="footer" value="" />
+	</definition>
+
+</tiles-definitions>

@@ -1,16 +1,8 @@
 @CHARSET "UTF-8";
 
+@IMPORT url("kendo/kendo.common.css");
 @IMPORT url("kendo/kendo.default.css");
-@IMPORT url("solute/solute.joinpage.css");
-
-body {
-	font-family: "맑은 고딕", 'Malgun Gothic', 'dotum';
-	font-size: 12px;
-	font-weight: normal;
-    margin: 0px;
-    top: 0px;
-    left: 0px;
-}
+@IMPORT url("solute/solute.css");
 
 a:link {color: blue; text-decoration: none;}
 a:visited {color: red; text-decoration: none;}
