@@ -22,6 +22,7 @@
 
 	<!-- Forwards requests to the "/" resource to the "welcome" view -->
 	<view-controller path="/" view-name="redirect:/home" />
+    <view-controller path="/test" view-name="test" />
 
 	<!-- Configures Handler Interceptors -->
 	<mvc:interceptors>
