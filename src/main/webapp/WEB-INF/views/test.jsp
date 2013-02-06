@@ -11,17 +11,28 @@
 <head>
     <meta charset="utf-8">
     <title>Solute Test Page</title>
-    <script data-main="${webappRoot}/resources/js/config.js" src="${webappRoot}/resources/js/libs/require.js"></script>
+    <script src="${webappRoot}/resources/js/libs/require.js"></script>
+    <script src="${webappRoot}/resources/js/config.js"></script>
 </head>
 <body>
 <script>
-    require(["jquery", "underscore", "backbone"], function ($, _, Backbone) {
-        var model = new Backbone.Model.extend({
-            initialize: function () {
-                alert('aaa');
-            }
-        });
-    });
+   require(["jquery", "underscore", "backbone"], function ($, _, Backbone) {
+       console.debug(Backbone);
+       var MyModel = Backbone.Model.extend({
+           urlRoot:"/mtest",
+           defaults: {
+               id: "",
+               msg: ""
+           }
+       });
+
+       var mmodel = new MyModel({id: "1"});
+       mmodel.fetch({
+           success: function (mmodel) {
+               alert(mmodel.toJSON());
+           }
+       });
+   });
 </script>
 </body>
 </html>

@@ -1,5 +1,5 @@
-requirejs.config({
-
+require.config({
+    baseUrl: "/resources/js/",
     dir: "./",
 
     // 3rd party script alias names
@@ -10,7 +10,6 @@ requirejs.config({
         kendo: "libs/kendo/kendo.web",
         underscore: "libs/lodash",
         backbone: "libs/backbone",
-        thrift: "libs/thrift",
 
         // Require.js Plugins
         use: "plugins/use",
@@ -24,11 +23,6 @@ requirejs.config({
         backbone: {
             deps: ["use!underscore", "jquery"],
             attach: "Backbone"  //attaches "Backbone" to the window object
-        },
-
-        thrift: {
-            deps: ["jquery"],
-            attach: "thrift"
         },
 
         underscore: {
