@@ -14,8 +14,9 @@
     		<input type="password" class="k-textbox" value="" />
     	</li>
     	<li role="help">
-    		<button>?</button>
+    		<button class="k-button">?</button>
     	</li>
-    	<li role="solution-donate">문제기부하기</li>
+    	<li role="together">함께하기</li>
+        <li role="donate">문제기부하기</li>
     </ul>
 </div>

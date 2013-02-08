@@ -7,6 +7,11 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <div class="s-wrap">
-    <tiles:insertAttribute name="content" />
+    <div class="s-content">
+        <div class='s-title'>
+            <div role='text'><spring:message code="project.name.default" /></div>
+        </div>
+    </div>
 </div>

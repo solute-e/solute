@@ -1,0 +1,48 @@
+@charset "utf-8";
+
+.s-loginpage .s-header .s-wrap {
+    background-color: rgb(124, 76, 121);
+    position: relative;
+}
+
+.s-loginpage .s-header ul.s-list {
+    list-style: none;
+    text-align: left;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+.s-loginpage .s-header ul.s-list > li{
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+}
+
+.s-loginpage .s-header ul.s-list > li[role="title"] {
+    left: 15%;
+    color: white;
+    font-size: 30px;
+}
+
+.s-loginpage .s-header ul.s-list > li[role='email'] {
+    left: 41%;
+}
+
+.s-loginpage .s-header ul.s-list > li[role='password'] {
+    left: 42%;
+}
+
+.s-loginpage .s-header ul.s-list > li[role='help'] {
+    left: 43%;
+}
+
+.s-loginpage .s-header ul.s-list > li[role='together'] {
+    color: white;
+    left: 45%;
+}
+
+.s-loginpage .s-header ul.s-list > li[role='donate'] {
+    color: white;
+    left: 46%;
+}

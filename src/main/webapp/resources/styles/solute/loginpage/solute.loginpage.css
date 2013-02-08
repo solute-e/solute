@@ -1,7 +1,9 @@
 @charset "utf-8";
 
 @IMPORT url("solute.loginpage.header.css");
+@IMPORT url("solute.loginpage.body.css");
 
 .s-loginpage {
     text-align: center;
+    height: 100%;
 }
