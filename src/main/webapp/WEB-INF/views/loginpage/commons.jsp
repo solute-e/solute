@@ -4,4 +4,8 @@
 <!DOCTYPE HTML>
 
 <link rel="stylesheet" href="${webappRoot}/resources/styles/<spring:theme code="css"/>" type="text/css" />
-<script data-main="${webappRoot}/resources/js/config.js" src="${webappRoot}/resources/js/libs/require.js"></script>
+<script src="${webappRoot}/resources/js/libs/jquery.js"></script>
+<script src="${webappRoot}/resources/js/libs/kendo/cultures/kendo.culture.${lang}.js"></script>
+<script src="${webappRoot}/resources/js/libs/kendo/kendo.web.js"></script>
+<script src="${webappRoot}/resources/js/libs/lodash.js"></script>
+<script src="${webappRoot}/resources/js/libs/backbone.js"></script>
