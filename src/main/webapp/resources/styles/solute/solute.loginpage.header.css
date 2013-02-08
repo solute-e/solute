@@ -20,9 +20,12 @@
 }
 
 .s-loginpage .s-header ul.s-list > li[role="title"] {
-    left: 15%;
-    color: white;
-    font-size: 30px;
+    left: 17%;
+}
+
+.s-loginpage .s-header ul.s-list > li[role='title'] > img {
+    width: 27%;
+    margin: 2% 0 2% 0;
 }
 
 .s-loginpage .s-header ul.s-list > li[role='email'] {

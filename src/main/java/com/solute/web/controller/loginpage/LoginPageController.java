@@ -18,8 +18,8 @@ import org.springframework.web.servlet.ModelAndView;
 public class LoginPageController {
 
     @RequestMapping(method = RequestMethod.GET)
-    public ModelAndView getNoLoginPage() {
+    public ModelAndView getLoginPage() {
         return new ModelAndView("loginpage")
-        			.addObject("category", "default");
+        			.addObject("body_right", "body/right");
     }
 }

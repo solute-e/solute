@@ -10,8 +10,14 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <div class="s-wrap">
     <div class="s-content">
-        <div class='s-title'>
-            <div role='text'><spring:message code="project.name.default" /></div>
+        <tiles:insertAttribute name="title" />
+        <div class="s-contents-container">
+            <div class="s-left">
+                <tiles:insertAttribute name="left" />
+            </div>
+            <div class="s-right">
+                <tiles:insertAttribute name="right" />
+            </div>
         </div>
     </div>
 </div>

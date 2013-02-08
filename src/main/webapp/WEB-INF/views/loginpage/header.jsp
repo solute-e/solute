@@ -5,7 +5,7 @@
 <div class="s-wrap">
     <ul class="s-list">
         <li role="title">
-            <spring:message code="project.name.default" />
+            <img src="${webappRoot}/resources/images/Solute_logo_white.png">
         </li>
     	<li role="email">
     		<input type="text" class="k-textbox" value="" />
