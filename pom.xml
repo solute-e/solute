@@ -281,60 +281,6 @@
 					<showDeprecation>true</showDeprecation>
 				</configuration>
 			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-antrun-plugin</artifactId>
-				<version>1.7</version>
-				<executions>
-					<execution>
-						<id>thrift-generate-sources</id>
-						<phase>generate-sources</phase>
-						<goals>
-							<goal>run</goal>
-						</goals>
-						<configuration>
-							<target>
-								<property name="exec.output" value="${basedir}/target/antrun/out.txt" />
-								<delete file="${exec.output}"></delete>
-								<apply executable="thrift" dir="${basedir}" output="${exec.output}">
-									<arg value="-debug" />
-									<arg value="-out" />
-									<arg value="src/main/java" />
-									<arg value="--gen" />
-									<arg value="java" />
-									<fileset dir="${basedir}/src/main/thrift"
-										casesensitive="yes">
-										<include name="**/*.thrift" />
-									</fileset>
-								</apply>
-								<apply executable="thrift" dir="${basedir}" output="${exec.output}">
-									<arg value="-debug" />
-									<arg value="-out" />
-									<arg value="src/test/java" />
-									<arg value="--gen" />
-									<arg value="java" />
-									<fileset dir="${basedir}/src/test/thrift"
-										casesensitive="yes">
-										<include name="**/*.thrift" />
-									</fileset>
-								</apply>
-								<apply executable="thrift" dir="${basedir}" output="${exec.output}">
-									<arg value="-debug"></arg>
-									<arg value="-out" />
-									<arg value="src/main/webapp/resources/js/thrift/gen" />
-									<arg value="--gen" />
-									<arg value="js:jquery" />
-									<fileset dir="${basedir}/src/main/thrift"
-										casesensitive="yes">
-										<include name="**/*.thrift" />
-									</fileset>
-								</apply>
-							</target>
-
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
 		</plugins>
 		<pluginManagement>
 			<plugins>
