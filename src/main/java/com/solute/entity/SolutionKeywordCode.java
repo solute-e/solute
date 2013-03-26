@@ -5,6 +5,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table
@@ -12,8 +15,10 @@ public class SolutionKeywordCode {
 	@Id
 	@GeneratedValue
 	@Column(name="skc_id", nullable=false, updatable=false, unique=true)
-	private Integer id;
+	private Long id;
 	
+	@NotEmpty
+	@NotNull
 	@Column(name="skc_name", nullable=false, unique=false)
 	private String name;
 	
@@ -26,12 +31,8 @@ public class SolutionKeywordCode {
 		this.name = name;
 	}
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
 	}
 
 	public String getName() {

@@ -1,15 +1,16 @@
-package com.solute.web.dao.impl;
+package com.solute.dao.impl;
 
 import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Projections;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.solute.dao.SolutionKeywordCodeDao;
 import com.solute.entity.SolutionKeywordCode;
 import com.solute.utils.HibernateSupportDao;
-import com.solute.web.dao.SolutionKeywordCodeDao;
 
 @Repository
 public class SolutionKeywordCodeDaoImpl extends HibernateSupportDao implements SolutionKeywordCodeDao {
@@ -18,24 +19,22 @@ public class SolutionKeywordCodeDaoImpl extends HibernateSupportDao implements S
 	public void insert(SolutionKeywordCode skc) {
 		session().save(skc);
 	}
+	
+	public long count() {
+		return (Long)session().createCriteria(SolutionKeywordCode.class)
+				.setProjection(Projections.rowCount()).list().get(0);
+	}
 
 	@Override
-	public List<SolutionKeywordCode> selectAll() {
+	public List<SolutionKeywordCode> select() {
 		return session().createCriteria(SolutionKeywordCode.class).list();
 	}
 
 	@Override
-	public void delete(Integer id) {
+	public void delete(Long id) {
 		Session session = session();
 		SolutionKeywordCode skc = (SolutionKeywordCode)session.load(SolutionKeywordCode.class, id);
 		session.delete(skc);
 	}
 	
-	@Override
-	public void deleteAll() {
-		Session session = session();
-		for (SolutionKeywordCode skc : (List<SolutionKeywordCode>)session.createCriteria(SolutionKeywordCode.class).list()) {
-			session.delete(skc);
-		}
-	}
 }
