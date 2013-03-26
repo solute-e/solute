@@ -6,16 +6,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
-@Entity(name="solution_keyword")
+@Entity
 public class SolutionKeyword {
 	@Id
 	@GeneratedValue
 	@Column(name="sk_id", nullable=false, updatable=false, unique=true)
 	private Integer id;
 	
-	@Column(name="skc_id", nullable=false, updatable=false, unique=true)
-	private Integer skcId;
-	
-	@OneToOne(mappedBy="skc_id")
+	@OneToOne
 	private SolutionKeywordCode code;
 }

@@ -10,17 +10,19 @@ import org.slf4j.LoggerFactory;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.transaction.annotation.Transactional;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ActiveProfiles("dev")
+@Transactional
 @ContextConfiguration({ "file:src/main/webapp/WEB-INF/spring/root-context.xml",
 		"classpath:/META-INF/spring/test/test-context.xml",
 		"file:src/main/webapp/WEB-INF/spring/dao-context.xml",
 		"file:src/main/webapp/WEB-INF/spring/config-context.xml",
         "file:src/main/webapp/WEB-INF/spring/mvc/servlet-context.xml"})
-public abstract class AbstractSpringBaseTest {
+public abstract class AbstractSpringBaseTestSuite {
 	private static long elapsedTime = 0;
-	private static Logger logger = LoggerFactory.getLogger(AbstractSpringBaseTest.class);
+	private static Logger logger = LoggerFactory.getLogger(AbstractSpringBaseTestSuite.class);
 
 	@Rule
 	public MethodRule watchman = new TestWatchman() {

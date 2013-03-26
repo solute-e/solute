@@ -8,4 +8,5 @@ public interface SolutionKeywordCodeDao {
 	public void insert(SolutionKeywordCode skc);
 	public List<SolutionKeywordCode> selectAll();
 	public void delete(Integer id);
+	public void deleteAll();
 }
