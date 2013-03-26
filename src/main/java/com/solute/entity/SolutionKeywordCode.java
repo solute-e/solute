@@ -1,17 +1,27 @@
 package com.solute.entity;
 
+import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
-@Table
-public class SolutionKeywordCode {
+@Table(name="solution_keyword_code", uniqueConstraints={
+		@UniqueConstraint(columnNames="skc_id")
+})
+public class SolutionKeywordCode implements Serializable {
 	@Id
 	@GeneratedValue
 	@Column(name="skc_id", nullable=false, updatable=false, unique=true)
@@ -22,6 +32,10 @@ public class SolutionKeywordCode {
 	@Column(name="skc_name", nullable=false, unique=false)
 	private String name;
 	
+	@ManyToMany(fetch=FetchType.LAZY)
+	@JoinColumn(name="sk_id")
+	private Set<SolutionKeyword> solutionKeywords = new HashSet<SolutionKeyword>(0);
+	
 	public SolutionKeywordCode() {
 		super();
 	}
@@ -30,9 +44,19 @@ public class SolutionKeywordCode {
 		super();
 		this.name = name;
 	}
+	
+	public SolutionKeywordCode(String name, Set<SolutionKeyword> solutionKeywords) {
+		super();
+		this.name = name;
+		this.solutionKeywords = solutionKeywords;
+	}
 
 	public Long getId() {
 		return id;
+	}
+	
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getName() {

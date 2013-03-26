@@ -11,19 +11,26 @@ import com.solute.test.utils.suite.AbstractSpringBaseContextsTest;
 
 public class SolutionKeywordDaoTest extends AbstractSpringBaseContextsTest {
 	@Autowired
-	private SolutionKeywordDao dao;
+	private SolutionKeywordDao targetDao;
 	
-	private SolutionKeywordCodeDaoTest skcDaoTest;
+	@Autowired
+	private SolutionKeywordCodeDao codeDao;
 	
 	private SolutionKeyword[] sks;
+	private SolutionKeywordCode []skcs;
 	
 	@Before
 	public void setUp() {
+		skcs = new SolutionKeywordCode[]{
+				new SolutionKeywordCode("test0"),
+				new SolutionKeywordCode("test1"),
+				new SolutionKeywordCode("test2"),
+				new SolutionKeywordCode("test3"),
+				new SolutionKeywordCode("test4")
+		};
 		
-		sks = new SolutionKeyword[skcDaoTest.getSkcs().length];
-		int i = 0;
-		for (SolutionKeywordCode skc : skcDaoTest.getSkcs()) {
-			sks[i++] = new SolutionKeyword(skc.getId());
+		for (SolutionKeywordCode skc : skcs) {
+			codeDao.insert(skc);
 		}
 	}
 	

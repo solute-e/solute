@@ -1,60 +1,50 @@
 package com.solute.entity;
 
-import java.util.List;
+import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 @Entity
-public class SolutionKeyword {
+@Table(name = "solution_keyword", 
+	uniqueConstraints = { 
+		@UniqueConstraint(columnNames = "sk_id"), 
+	})
+public class SolutionKeyword implements Serializable {
 	@Id
 	@GeneratedValue
-	@Column(name="sk_id", nullable=false, updatable=false, unique=true)
+	@Column(name = "sk_id", nullable = false, updatable = false, unique = true)
 	private Long id;
-	
-	@Column(name="skc_id", nullable=false, updatable=false, unique=true)
-	private Long skcId;
-	
-	@OneToMany(cascade={CascadeType.ALL})
-	@JoinColumn(name="skc_id")
-	private List<SolutionKeywordCode> codes;
+
+	@ManyToMany(fetch=FetchType.LAZY, cascade = { CascadeType.ALL })
+	@JoinColumn(name = "skc_id", nullable=false)
+	private Set<SolutionKeywordCode> codes = new HashSet<SolutionKeywordCode>(0);
 
 	public SolutionKeyword() {
 		super();
 	}
 
-	public SolutionKeyword(Long skc_id) {
+	public SolutionKeyword(Set<SolutionKeywordCode> codes) {
 		super();
+		this.codes = codes;
 	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public Long getSkcId() {
-		return skcId;
-	}
-
-	public void setSkcId(Long skcId) {
-		this.skcId = skcId;
-	}
-
-	public List<SolutionKeywordCode> getCodes() {
-		return codes;
-	}
-
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((codes == null) ? 0 : codes.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((skcId == null) ? 0 : skcId.hashCode());
 		return result;
 	}
 
@@ -77,17 +67,28 @@ public class SolutionKeyword {
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
-		if (skcId == null) {
-			if (other.skcId != null)
-				return false;
-		} else if (!skcId.equals(other.skcId))
-			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "SolutionKeyword [id=" + id + ", skcId=" + skcId + ", codes=" + codes + "]";
+		return "SolutionKeyword [id=" + id + ", codes=" + codes + "]";
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Set<SolutionKeywordCode> getCodes() {
+		return codes;
+	}
+
+	public void setCodes(Set<SolutionKeywordCode> codes) {
+		this.codes = codes;
 	}
 
 }
