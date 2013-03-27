@@ -16,9 +16,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.solute.dao.SolutionKeywordCodeDao;
 import com.solute.entity.SolutionKeywordCode;
-import com.solute.test.utils.suite.AbstractSpringBaseContextsTest;
+import com.solute.test.utils.suite.AbstractSpringBaseContextTest;
 
-public class SolutionKeywordCodeDaoTest extends AbstractSpringBaseContextsTest {
+public class SolutionKeywordCodeDaoTest extends AbstractSpringBaseContextTest {
 	@Autowired
 	private SolutionKeywordCodeDao dao;
 	

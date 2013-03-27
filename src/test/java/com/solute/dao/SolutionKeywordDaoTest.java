@@ -1,5 +1,7 @@
 package com.solute.dao;
 
+import java.util.List;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -7,9 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.solute.entity.SolutionKeyword;
 import com.solute.entity.SolutionKeywordCode;
-import com.solute.test.utils.suite.AbstractSpringBaseContextsTest;
+import com.solute.test.utils.suite.AbstractSpringBaseContextTest;
 
-public class SolutionKeywordDaoTest extends AbstractSpringBaseContextsTest {
+public class SolutionKeywordDaoTest extends AbstractSpringBaseContextTest {
 	@Autowired
 	private SolutionKeywordDao targetDao;
 	
@@ -29,9 +31,14 @@ public class SolutionKeywordDaoTest extends AbstractSpringBaseContextsTest {
 				new SolutionKeywordCode("test4")
 		};
 		
+		
+		
 		for (SolutionKeywordCode skc : skcs) {
 			codeDao.insert(skc);
 		}
+		
+		List<SolutionKeywordCode> skcs = codeDao.select();
+		
 	}
 	
 	@After

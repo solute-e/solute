@@ -1,6 +1,6 @@
 package org.springframework.test;
 
-import com.solute.test.utils.suite.AbstractSpringBaseContextsTest;
+import com.solute.test.utils.suite.AbstractSpringBaseContextTest;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
@@ -9,7 +9,7 @@ import java.util.Locale;
 
 import static org.junit.Assert.assertEquals;
 
-public class MessageSourceTest extends AbstractSpringBaseContextsTest {
+public class MessageSourceTest extends AbstractSpringBaseContextTest {
 	@Autowired
 	private MessageSource messageSource;
 	

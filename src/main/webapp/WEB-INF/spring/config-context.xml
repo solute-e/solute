@@ -26,5 +26,17 @@
 			</property>
 		</bean>
 	</beans>
+	
+	<beans profile="localhost">
+		<bean id="placeholderConfig"
+			class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+			<property name="locations">
+				<list>
+					<value>classpath:/META-INF/config/localhost/jdbc.properties</value>
+					<value>classpath:/META-INF/config/localhost/hibernate.properties</value>
+				</list>
+			</property>
+		</bean>
+	</beans>
 
 </beans>
