@@ -11,15 +11,12 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "solution_keyword", 
-	uniqueConstraints = { 
-		@UniqueConstraint(columnNames = "sk_id"), 
-	})
+@Table(name = "solution_keyword")
 public class SolutionKeyword implements Serializable {
 	@Id
 	@GeneratedValue
@@ -27,24 +24,27 @@ public class SolutionKeyword implements Serializable {
 	private Long id;
 
 	@ManyToMany(fetch=FetchType.LAZY, cascade = { CascadeType.ALL })
-	@JoinColumn(name = "skc_id", nullable=false)
-	private Set<SolutionKeywordCode> codes = new HashSet<SolutionKeywordCode>(0);
+	@JoinTable(name="solution_keyword_solution_keyword_code",
+				joinColumns={@JoinColumn(name="sk_id")},
+				inverseJoinColumns={@JoinColumn(name="skc_id")})
+	private Set<SolutionKeywordCode> solutionKeywordCodes = new HashSet<SolutionKeywordCode>(0);
 
 	public SolutionKeyword() {
 		super();
+		// TODO Auto-generated constructor stub
 	}
 
-	public SolutionKeyword(Set<SolutionKeywordCode> codes) {
+	public SolutionKeyword(Set<SolutionKeywordCode> solutionKeywordCodes) {
 		super();
-		this.codes = codes;
+		this.solutionKeywordCodes = solutionKeywordCodes;
 	}
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((codes == null) ? 0 : codes.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((solutionKeywordCodes == null) ? 0 : solutionKeywordCodes.hashCode());
 		return result;
 	}
 
@@ -57,22 +57,22 @@ public class SolutionKeyword implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		SolutionKeyword other = (SolutionKeyword) obj;
-		if (codes == null) {
-			if (other.codes != null)
-				return false;
-		} else if (!codes.equals(other.codes))
-			return false;
 		if (id == null) {
 			if (other.id != null)
 				return false;
 		} else if (!id.equals(other.id))
+			return false;
+		if (solutionKeywordCodes == null) {
+			if (other.solutionKeywordCodes != null)
+				return false;
+		} else if (!solutionKeywordCodes.equals(other.solutionKeywordCodes))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "SolutionKeyword [id=" + id + ", codes=" + codes + "]";
+		return "SolutionKeyword [id=" + id + ", solutionKeywordCodes=" + solutionKeywordCodes + "]";
 	}
 
 	public Long getId() {
@@ -83,12 +83,12 @@ public class SolutionKeyword implements Serializable {
 		this.id = id;
 	}
 
-	public Set<SolutionKeywordCode> getCodes() {
-		return codes;
+	public Set<SolutionKeywordCode> getSolutionKeywordCodes() {
+		return solutionKeywordCodes;
 	}
 
-	public void setCodes(Set<SolutionKeywordCode> codes) {
-		this.codes = codes;
+	public void setSolutionKeywordCodes(Set<SolutionKeywordCode> solutionKeywordCodes) {
+		this.solutionKeywordCodes = solutionKeywordCodes;
 	}
 
 }

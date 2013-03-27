@@ -14,8 +14,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ActiveProfiles("dev")
-//@ActiveProfiles("localhost")
+//@ActiveProfiles("dev")
+@ActiveProfiles("localhost")
 @ContextConfiguration({ "file:src/main/webapp/WEB-INF/spring/root-context.xml",
 		"classpath:/META-INF/spring/test/test-context.xml",
 		"file:src/main/webapp/WEB-INF/spring/dao-context.xml",

@@ -4,12 +4,13 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
@@ -18,9 +19,7 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
-@Table(name="solution_keyword_code", uniqueConstraints={
-		@UniqueConstraint(columnNames="skc_id")
-})
+@Table(name="solution_keyword_code")
 public class SolutionKeywordCode implements Serializable {
 	@Id
 	@GeneratedValue
@@ -32,8 +31,7 @@ public class SolutionKeywordCode implements Serializable {
 	@Column(name="skc_name", nullable=false, unique=false)
 	private String name;
 	
-	@ManyToMany(fetch=FetchType.LAZY)
-	@JoinColumn(name="sk_id")
+	@ManyToMany(mappedBy="solutionKeywordCodes")
 	private Set<SolutionKeyword> solutionKeywords = new HashSet<SolutionKeyword>(0);
 	
 	public SolutionKeywordCode() {

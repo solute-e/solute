@@ -1,6 +1,10 @@
 package com.solute.dao;
 
+import static org.junit.Assert.assertEquals;
+
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.junit.After;
 import org.junit.Before;
@@ -31,14 +35,17 @@ public class SolutionKeywordDaoTest extends AbstractSpringBaseContextTest {
 				new SolutionKeywordCode("test4")
 		};
 		
-		
-		
 		for (SolutionKeywordCode skc : skcs) {
 			codeDao.insert(skc);
 		}
 		
 		List<SolutionKeywordCode> skcs = codeDao.select();
-		
+		sks = new SolutionKeyword[skcs.size()];
+		for (int i = 0; i < skcs.size(); i++) {
+			Set<SolutionKeywordCode> skcSet = new HashSet<SolutionKeywordCode>(1);
+			skcSet.add(skcs.get(i));
+			sks[i] = new SolutionKeyword(skcSet);
+		}
 	}
 	
 	@After
@@ -47,6 +54,10 @@ public class SolutionKeywordDaoTest extends AbstractSpringBaseContextTest {
 	
 	@Test
 	public void testInsert() {
+		for (SolutionKeyword sk : sks) {
+			targetDao.insert(sk);
+		}
 		
+		assertEquals(sks.length, targetDao.count());
 	}
 }
