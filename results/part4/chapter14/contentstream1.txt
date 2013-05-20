@@ -1,9 +1,0 @@
-q
-BT
-36 806 Td
-0 -18 Td
-/F1 12 Tf
-(Hello World!)Tj
-0 0 Td
-ET
-Q

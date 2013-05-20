@@ -17,6 +17,9 @@ public class AttributeInterceptor extends HandlerInterceptorAdapter {
 	
 	private @Autowired ServletContext sc;
 	private @Autowired CookieLocaleResolver localeResolver;
+	private String [][]configs = {
+			{"views_prefix", "/WEB-INF/views"}
+	};
 
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
@@ -25,6 +28,10 @@ public class AttributeInterceptor extends HandlerInterceptorAdapter {
 		
 		request.setAttribute("webappRoot", cp);
 		request.setAttribute("lang", locale.getLanguage());
+		
+		for (String []configPair : configs) {
+			request.setAttribute(configPair[0], configPair[1]);
+		}
 		
 		return super.preHandle(request, response, handler);
 	}

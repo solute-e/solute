@@ -1,7 +1,7 @@
 @CHARSET "UTF-8";
 
-@IMPORT url("kendo/kendo.common.css");
-@IMPORT url("kendo/kendo.default.css");
+@IMPORT url("bootstrap/css/bootstrap.css");
+@IMPORT url("bootstrap/css/bootstrap-responsive.css");
 @IMPORT url("solute/solute.css");
 
 a:link {color: blue; text-decoration: none;}

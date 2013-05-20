@@ -1,6 +1,7 @@
 @CHARSET "UTF-8";
 
 @IMPORT url("solute.loginpage.css");
+@IMPORT url("solute.common.css");
 
 html, body {
     height: 100%;
