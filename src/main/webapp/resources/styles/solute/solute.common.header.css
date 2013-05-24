@@ -1,23 +1,9 @@
 @charset "utf-8";
 
-.s-header .s-email {
-    left: 41%;
-}
-
-.s-header .s-password {
-    left: 42%;
+.s-header .s-form > input {
+	margin: 5px 0 0 0;
 }
 
 .s-header .s-help {
-    left: 43%;
-}
-
-.s-header .s-together {
-    color: white;
-    left: 45%;
-}
-
-.s-header .s-donate {
-    color: white;
-    left: 46%;
+    margin-left: 15px;
 }

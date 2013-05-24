@@ -15,8 +15,10 @@
     <header class="s-header">
         <tiles:insertAttribute name="header" />
     </header>
-    <div class="s-body">
-        <tiles:insertAttribute name="body" />
+    <div class="container">
+    	<div class="s-body">
+        	<tiles:insertAttribute name="body" />
+        </div>
     </div>
     <footer class="s-footer">
         <tiles:insertAttribute name="footer" />

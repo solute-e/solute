@@ -3,47 +3,21 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <div class="s-header container">
-	<a class="brand" href="#">Solute</a>
-	<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-	<div class="nav-collapse collapse">
-		<ul class="nav">
-			<li class="s-email">
-				<input type="text" class="k-textbox" value="" />
-			</li>
-			<li class="s-password">
-				<input type="password" class="k-textbox" value="" />
-			</li>
-			<li class="s-help">
-				<button class="k-button">?</button>
-			</li>
-			<li class="s-together">함께하기</li>
-        	<li class="s-donate">문제기부하기</li>
-		</ul>
-	</div>
+	<a class="s-title brand" href="#">Solute</a>
+	<ul class="nav pull-right">
+		<li class="s-form">
+			<input class="s-email" type="email" placeholder="이메일 계정을 입력하세요." />
+			<input class="s-passwd" type="password" placeholder="비밀번호를 입력하세요." />
+			<button class="s-submit btn btn-submit" type="submit">Sign in</button>
+		</li>
+		<li class="s-help">
+			<button class="btn btn-info">?</button>
+		</li>
+		<li class="s-together">
+			<a href="#">함께하기</a>
+		</li>
+       	<li class="s-donate">
+       		<a href="#">문제기부하기</a>
+       	</li>
+	</ul>
 </div>
-
-<!-- 
-<div class="s-wrap">
-    <ul class="s-list">
-        <li role="title">
-            <img src="${webappRoot}/resources/images/Solute_logo_white.png">
-        </li>
-    	<li role="email">
-    		<input type="text" class="k-textbox" value="" />
-    	</li>
-    	<li role="password">
-    		<input type="password" class="k-textbox" value="" />
-    	</li>
-    	<li role="help">
-    		<button class="k-button">?</button>
-    	</li>
-    	<li role="together">함께하기</li>
-        <li role="donate">문제기부하기</li>
-    </ul>
-</div>
-
- -->
