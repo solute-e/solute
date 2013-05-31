@@ -11,7 +11,7 @@
     <tiles:insertAttribute name="commons" />
 </head>
 <body data-spy="scroll" data-twttr-rendered="true">
-<div class="navbar navbar-fixed-top">
+<div class="navbar navbar-static-top">
 	<div class="navbar-inner">
 		<tiles:insertAttribute name="header" />
 	</div>
