@@ -6,6 +6,7 @@
 	<definition name="common.tiles" templateExpression="${views_prefix}/common/layout.jsp">
 		<put-attribute name="commons" expression="${views_prefix}/common/commons.jsp" />
 		<put-attribute name="header" expression="${views_prefix}/common/header.jsp" />
+		<put-attribute name="body" expression="${views_prefix}/common/body.jsp" />
 	</definition>
 
 </tiles-definitions>

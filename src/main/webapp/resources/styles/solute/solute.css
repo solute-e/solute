@@ -2,6 +2,7 @@
 
 @IMPORT url("solute.loginpage.css");
 @IMPORT url("solute.common.css");
+@IMPORT url("solute.searchpage.css");
 
 html, body {
     height: 100%;

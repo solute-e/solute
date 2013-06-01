@@ -9,7 +9,7 @@
         <put-attribute name="right" expression="/WEB-INF/views/loginpage/${body_right}.jsp" />
     </definition>
 	<definition name="searchpage.tiles" extends="common.tiles">
-		<put-attribute name="body" value="" />
+		<put-attribute name="search.body" value="" />
 	</definition>
 
 </tiles-definitions>

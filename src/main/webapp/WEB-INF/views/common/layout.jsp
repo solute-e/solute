@@ -11,15 +11,14 @@
     <tiles:insertAttribute name="commons" />
 </head>
 <body data-spy="scroll" data-twttr-rendered="true">
-<div class="navbar navbar-static-top">
+<div class="navbar navbar-fixed-top">
 	<div class="navbar-inner">
 		<tiles:insertAttribute name="header" />
 	</div>
 </div>
-<div class="container">
-	<div class="row">
-		<div class="span8">
-		</div>
+<div class="s-body-container">
+	<div class="s-body">
+		<tiles:insertAttribute name="body" />
 	</div>
 </div>
 </body>

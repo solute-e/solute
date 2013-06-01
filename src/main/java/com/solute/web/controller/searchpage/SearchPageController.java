@@ -19,6 +19,7 @@ public class SearchPageController {
 
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView getPage() {
-        return new ModelAndView("searchpage");
+        return new ModelAndView("searchpage")
+        			.addObject("body", "index");
     }
 }
