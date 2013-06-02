@@ -16,10 +16,8 @@
 		<tiles:insertAttribute name="header" />
 	</div>
 </div>
-<div class="s-body-container">
-	<div class="s-body">
-		<tiles:insertAttribute name="body" />
-	</div>
+<div class="container-fluid s-body-container">
+	<tiles:insertAttribute name="body" />
 </div>
 </body>
 </html>
