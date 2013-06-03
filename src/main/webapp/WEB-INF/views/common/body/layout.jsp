@@ -4,12 +4,23 @@
 
 <div class="row-fluid">
 	<div class="span3">
-		asdasd
+		<tiles:insertAttribute name="body_side_l" />
 	</div>
 	<div class="span6">
-		<tiles:insertAttribute name="body-main" />
+		<div class="row-fluid s-body">
+			<div class="span1">
+				asd
+			</div>
+			<div class="span10">
+				<div class="row-fluid">
+				</div>
+			</div>
+			<div class="span1">
+				asd
+			</div>
+		</div>
 	</div>
 	<div class="span3">
-		asdasd
+		<tiles:insertAttribute name="body_side_r" />
 	</div>
 </div>
