@@ -1,12 +1,8 @@
 @CHARSET "UTF-8";
 
-@IMPORT url("solute.loginpage.css");
+/* @IMPORT url("solute.loginpage.css"); */
 @IMPORT url("solute.common.css");
 @IMPORT url("solute.searchpage.css");
-
-html, body {
-    height: 100%;
-}
 
 body {
     font-family: "맑은 고딕", 'Malgun Gothic', 'dotum';
@@ -17,6 +13,3 @@ body {
 }
 
 
-form {
-	margin: 0 0 0 0
-}

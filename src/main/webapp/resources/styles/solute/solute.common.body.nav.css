@@ -1,0 +1,15 @@
+@charset "utf-8";
+
+.s-body-inner .s-nav {
+	border: ridge 2px rgb(167, 11, 187);
+/* 	-o-filter: drop-shadow(0px 0px 20px black);
+    -moz-filter: drop-shadow(0px 0px 20px black);
+    -webkit-filter: drop-shadow(0px 0px 20px black);
+    -ms-filter: drop-shadow(0px 0px 20px black);
+    filter: drop-shadow(0px 0px 20px black); */
+}
+
+.s-body-inner .s-nav .nav {
+	padding: 10px;
+	margin: 0;
+}

@@ -12,7 +12,15 @@
 				asd
 			</div>
 			<div class="span10">
-				<div class="row-fluid">
+				<div class="s-body-inner">
+					<div class="row-fluid"> <!-- menu -->
+						<tiles:insertAttribute name="body.menu" />
+					</div>
+					<div class="row-fluid s-main">
+						<div>
+							<%-- <tiles:insertAttribute name="body.main" /> --%>
+						</div>
+					</div>
 				</div>
 			</div>
 			<div class="span1">

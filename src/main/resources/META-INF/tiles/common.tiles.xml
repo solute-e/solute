@@ -8,7 +8,7 @@
 		<put-attribute name="header" expression="${views_prefix}/common/header.jsp" />
 		<put-attribute name="body" value="">
 			<definition templateExpression="${views_prefix}/common/body/layout.jsp">
-				<put-attribute name="body_menu" value="" />
+				<put-attribute name="body.menu" expression="${views_prefix}/common/body/menu.jsp" />
 				<put-attribute name="body_side_l" value="" />
 				<put-attribute name="body_side_r" value="" />
 			</definition>

@@ -4,7 +4,3 @@
 @IMPORT url("bootstrap/css/bootstrap-responsive.css");
 @IMPORT url("solute/solute.css");
 
-a:link {color: blue; text-decoration: none;}
-a:visited {color: red; text-decoration: none;}
-a:active {color: green; font-weight: bold}
-a:hover {color: orange; font-weight: bold; text-shadow: black;}

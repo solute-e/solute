@@ -1,5 +1,6 @@
 @charset "utf-8";
 
+@IMPORT url("solute.common.body.nav.css");
 
 .s-body-container {
 	padding: 41px 0 0 0;	
@@ -14,16 +15,14 @@
 	border-bottom: solid 1px rgb(244, 175, 253);
 }
 
-.s-body-main {
+.s-body-inner {
 	border: none;
 	
 	border-top: solid 1px rgb(167, 11, 187);
 	border-left: solid 1px rgb(167, 11, 187);
 	border-right: solid 1px rgb(167, 11, 187);
-	
-	height: 300px;
 }
 
-.s-common-body .s-menu {
-	
+.s-body-inner .s-main {
+	padding: 10px 0 0 0;
 }
