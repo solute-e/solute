@@ -1,0 +1,11 @@
+@charset "utf-8";
+
+.s-page-main {
+	border: none;
+	border-top: dashed 1px rgb(167, 11, 187);
+}
+
+.s-page-print-help {
+	color: rgb(167, 11, 187);
+	opacity: 0.5;
+}

@@ -3,15 +3,16 @@
 "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
 "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 <tiles-definitions>
+	<definition name="common.body.tiles" templateExpression="${views_prefix}/common/body/layout.jsp">
+		<put-attribute name="body.menu" expression="${views_prefix}/common/body/menu.jsp" />
+		<put-attribute name="body_side_l" value="" />
+		<put-attribute name="body_side_r" value="" />
+	</definition>
 	<definition name="common.tiles" templateExpression="${views_prefix}/common/layout.jsp">
 		<put-attribute name="commons" expression="${views_prefix}/common/commons.jsp" />
 		<put-attribute name="header" expression="${views_prefix}/common/header.jsp" />
-		<put-attribute name="body" value="">
-			<definition templateExpression="${views_prefix}/common/body/layout.jsp">
-				<put-attribute name="body.menu" expression="${views_prefix}/common/body/menu.jsp" />
-				<put-attribute name="body_side_l" value="" />
-				<put-attribute name="body_side_r" value="" />
-			</definition>
+		<put-attribute name="body">
+			<definition extends="common.body.tiles" />
 		</put-attribute>
 	</definition>
 

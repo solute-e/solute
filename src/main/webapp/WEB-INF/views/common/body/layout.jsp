@@ -3,10 +3,10 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
 <div class="row-fluid">
-	<div class="span3">
+	<div class="span2">
 		<tiles:insertAttribute name="body_side_l" />
 	</div>
-	<div class="span6">
+	<div class="span8">
 		<div class="row-fluid s-body">
 			<div class="span1">
 				asd
@@ -18,7 +18,7 @@
 					</div>
 					<div class="row-fluid s-main">
 						<div>
-							<%-- <tiles:insertAttribute name="body.main" /> --%>
+							<tiles:insertAttribute name="body.main" />
 						</div>
 					</div>
 				</div>
@@ -28,7 +28,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="span3">
+	<div class="span2">
 		<tiles:insertAttribute name="body_side_r" />
 	</div>
 </div>
