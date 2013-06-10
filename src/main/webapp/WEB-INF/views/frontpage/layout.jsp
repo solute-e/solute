@@ -7,5 +7,6 @@
 		<p class="s-page-print-help pull-right">여기 부터 실제 인쇄시 출력되는 영역의 시작입니다.</p>
 	</div>
 	<div class="row-fluid">
+        <textarea rows="3" class="span4 offset1" placeholder="풀고싶은 주제를 입력하세요"></textarea>
 	</div>
 </div>
