@@ -14,7 +14,6 @@ import org.hibernate.validator.constraints.NotEmpty;
 public class Keyword implements Serializable {
 	@Id
 	@GeneratedValue
-	@Column(nullable = false, updatable = false, unique = true)
 	private Long id;
 	
 	@Column(nullable = false, unique = true)

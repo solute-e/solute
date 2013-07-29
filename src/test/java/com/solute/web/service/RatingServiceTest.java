@@ -12,8 +12,8 @@ public class RatingServiceTest extends AbstractSpringBaseContextTest {
 	@Autowired
 	private RatingService service;
 	
-	private User user;
-	private Problem problem;
+//	private User user;
+//	private Problem problem;
 	
 	private Map kwMap = ArrayUtils.toMap(new Object[][] {
 			{"matrix", 1L},
@@ -24,7 +24,7 @@ public class RatingServiceTest extends AbstractSpringBaseContextTest {
 	
 	@Test
 	public void testIncrement() {
-		service.increment(user, problem, kwMap.get("matrix multiply"));
+		
 	}
 	
 	@Test

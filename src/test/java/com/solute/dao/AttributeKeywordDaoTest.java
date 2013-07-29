@@ -26,9 +26,9 @@ public class AttributeKeywordDaoTest extends AbstractSpringBaseContextTest {
 	);
 	
 	private AttributeKeyword []attributeKeywords = ArrayUtils.toArray(
-			new AttributeKeyword(1L, AttributeCode.RECOGNITION),
-			new AttributeKeyword(2L, AttributeCode.KNOWLEDGE),
-			new AttributeKeyword(3L, AttributeCode.RECOGNITION)
+			new AttributeKeyword(1L, AttributeCode.RECOGNITION, 20),
+			new AttributeKeyword(2L, AttributeCode.KNOWLEDGE, 30),
+			new AttributeKeyword(3L, AttributeCode.RECOGNITION, 41)
 	);
 	
 	@Before

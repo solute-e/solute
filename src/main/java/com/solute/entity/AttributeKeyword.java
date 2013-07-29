@@ -1,6 +1,7 @@
 package com.solute.entity;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -20,14 +21,18 @@ public class AttributeKeyword implements Serializable {
 	@GeneratedValue
 	private Long id;
 	
-	@Column
+	@Column(nullable = false)
 	@Index(name = "code_idx")
 	@Enumerated(EnumType.STRING)
 	private AttributeCode code;
 	
 	@Column(nullable = false)
+	private Integer defaultRate;
+	
+	@Column(nullable = false)
 	@OneToMany(targetEntity = Keyword.class)	
-	private Set<Keyword> keywords;
+	private Set<Keyword> keywords = new HashSet<Keyword>();
+	
 	
 	public AttributeKeyword() {
 		super();
@@ -42,6 +47,21 @@ public class AttributeKeyword implements Serializable {
 	public AttributeKeyword(AttributeCode code) {
 		super();
 		this.code = code;
+	}
+	
+	public AttributeKeyword(Long id, AttributeCode code, Integer defaultRate) {
+		super();
+		this.id = id;
+		this.code = code;
+		this.defaultRate = defaultRate;
+	}
+
+	public Integer getDefaultRate() {
+		return defaultRate;
+	}
+
+	public void setDefaultRate(Integer defaultRate) {
+		this.defaultRate = defaultRate;
 	}
 
 	public Set<Keyword> getKeywords() {
@@ -65,7 +85,9 @@ public class AttributeKeyword implements Serializable {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((code == null) ? 0 : code.hashCode());
+		result = prime * result + ((defaultRate == null) ? 0 : defaultRate.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((keywords == null) ? 0 : keywords.hashCode());
 		return result;
 	}
 
@@ -80,14 +102,22 @@ public class AttributeKeyword implements Serializable {
 		AttributeKeyword other = (AttributeKeyword) obj;
 		if (code != other.code)
 			return false;
+		if (defaultRate == null) {
+			if (other.defaultRate != null)
+				return false;
+		} else if (!defaultRate.equals(other.defaultRate))
+			return false;
 		if (id == null) {
 			if (other.id != null)
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
+		if (keywords == null) {
+			if (other.keywords != null)
+				return false;
+		} else if (!keywords.equals(other.keywords))
+			return false;
 		return true;
 	}
-
-	
 	
 }
