@@ -18,6 +18,7 @@
 				<!-- hibernate을 이용한 sql문을 보여줄지 여부 -->
 				<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
 				<prop key="hibernate.format_sql">${hibernate.format_sql}</prop>
+				<prop key="hibernate.cache.use_query_cache">${hibernate.cache.use_query_cache}</prop>
 			</props>
 		</property>
 	</bean>
