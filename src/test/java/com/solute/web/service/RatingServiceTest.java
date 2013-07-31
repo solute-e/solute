@@ -10,7 +10,7 @@ import com.solute.test.utils.suite.AbstractSpringBaseContextTest;
 
 public class RatingServiceTest extends AbstractSpringBaseContextTest {
 	@Autowired
-	private RatingService service;
+	private UserService service;
 	
 //	private User user;
 //	private Problem problem;

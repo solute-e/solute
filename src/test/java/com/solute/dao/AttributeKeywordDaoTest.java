@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.solute.entity.AttributeCode;
 import com.solute.entity.AttributeKeyword;
 import com.solute.entity.Keyword;
-import com.solute.test.utils.SoluteTestUtils;
+import com.solute.test.utils.TestUtils;
 import com.solute.test.utils.suite.AbstractSpringBaseContextTest;
 
 public class AttributeKeywordDaoTest extends AbstractSpringBaseContextTest {
@@ -34,7 +34,7 @@ public class AttributeKeywordDaoTest extends AbstractSpringBaseContextTest {
 	@Before
 	public void setUp() {
 		for (AttributeKeyword keyword : attributeKeywords) {
-			keyword.setKeywords(SoluteTestUtils.toSet(keywords));
+			keyword.setKeywords(TestUtils.toSet(keywords));
 			dao.insert(keyword);
 		}
 	}

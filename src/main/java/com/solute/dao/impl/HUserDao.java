@@ -15,17 +15,12 @@ public class HUserDao extends HibernateSupportDao implements UserDao {
 	}
 
 	@Override
-	public void insert(User user) {
-		session().save(user);
-	}
-
-	@Override
 	public void delete(User user) {
 		session().delete(user);
 	}
 
 	@Override
 	public void update(User user) {
-		session().update(user);
+		session().saveOrUpdate(user);
 	}
 }

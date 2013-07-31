@@ -25,6 +25,15 @@ public class User {
 	@OneToMany(targetEntity = AttributeKeyword.class)
 	@MapKey(name = "id")
 	private Map<AttributeKeyword, Integer> rate = new HashMap<AttributeKeyword, Integer>();
+	
+	public User() {
+	}
+	
+	public User(User user) {
+		this.id = user.id;
+		this.userId = user.userId;
+		this.rate.putAll(user.rate);
+	}
 
 	public String getUserId() {
 		return userId;

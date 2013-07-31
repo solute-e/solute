@@ -1,6 +1,7 @@
 package com.solute.dao;
 
 import junit.framework.Assert;
+import static com.solute.test.utils.TestUtils.*;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -18,22 +19,7 @@ public class UserDaoTest extends AbstractSpringBaseContextTest {
 	
 	@Autowired
 	private UserDao dao;
-	
-	private Keyword getKeyword() {
-		Keyword keyword = new Keyword();
-		keyword.setToken("LOG");
-		
-		return keyword;
-	}
-	
-	private AttributeKeyword getAttributeKeyword() {
-		AttributeKeyword ak = new AttributeKeyword();
-		ak.setDefaultRate(20);
-		ak.getKeywords().add(getKeyword());
-		
-		return ak;
-	}
-	
+
 	@Before
 	public void setUp() {
 		user = new User();
@@ -43,7 +29,7 @@ public class UserDaoTest extends AbstractSpringBaseContextTest {
 	
 	@Test
 	public void testDefaultUser() {
-		dao.insert(user);
+		dao.update(user);
 		User actual = dao.select(user.getId());
 		
 		Assert.assertEquals(user, actual);
@@ -51,7 +37,7 @@ public class UserDaoTest extends AbstractSpringBaseContextTest {
 	
 	@Test
 	public void testRate() {
-		dao.insert(user);
+		dao.update(user);
 		User actual = dao.select(user.getId());
 		
 		Assert.assertEquals(RATE, actual.getRate().get(getAttributeKeyword()));
@@ -59,7 +45,7 @@ public class UserDaoTest extends AbstractSpringBaseContextTest {
 	
 	@Test
 	public void testUpdateRate() {
-		dao.insert(user);
+		dao.update(user);
 		User expected = dao.select(user.getId());
 		
 		expected.getRate().put(getAttributeKeyword(), expected.getRate().get(getAttributeKeyword()) + 1);
