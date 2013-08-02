@@ -23,8 +23,8 @@ public class UserDaoTest extends AbstractSpringBaseContextTest {
 	@Before
 	public void setUp() {
 		user = new User();
-		user.setUserId("dennis");
-		user.getRate().put(getAttributeKeyword(), RATE);
+		user.setId("dennis");
+		user.getMajorKeywordRates().put(getAttributeKeyword(), RATE);
 	}
 	
 	@Test
@@ -40,7 +40,7 @@ public class UserDaoTest extends AbstractSpringBaseContextTest {
 		dao.update(user);
 		User actual = dao.select(user.getId());
 		
-		Assert.assertEquals(RATE, actual.getRate().get(getAttributeKeyword()));
+		Assert.assertEquals(RATE, actual.getMajorKeywordRates().get(getAttributeKeyword()));
 	}
 	
 	@Test
@@ -48,11 +48,11 @@ public class UserDaoTest extends AbstractSpringBaseContextTest {
 		dao.update(user);
 		User expected = dao.select(user.getId());
 		
-		expected.getRate().put(getAttributeKeyword(), expected.getRate().get(getAttributeKeyword()) + 1);
+		expected.getMajorKeywordRates().put(getAttributeKeyword(), expected.getMajorKeywordRates().get(getAttributeKeyword()) + 1);
 		dao.update(expected);
 		
 		User actual = dao.select(user.getId());
-		Assert.assertEquals(expected.getRate().get(getAttributeKeyword()), actual.getRate().get(getAttributeKeyword()));
+		Assert.assertEquals(expected.getMajorKeywordRates().get(getAttributeKeyword()), actual.getMajorKeywordRates().get(getAttributeKeyword()));
 		Assert.assertEquals(expected, actual);
 	}
 }

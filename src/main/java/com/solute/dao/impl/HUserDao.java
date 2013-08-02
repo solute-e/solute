@@ -10,7 +10,7 @@ import com.solute.utils.HibernateSupportDao;
 public class HUserDao extends HibernateSupportDao implements UserDao {
 
 	@Override
-	public User select(Long id) {
+	public User select(String id) {
 		return (User)session().get(User.class, id);
 	}
 

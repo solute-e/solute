@@ -42,8 +42,8 @@ public class TestUtils {
 	
 	public static User getUser() {
 		User user = new User();
-		user.setUserId("dennis");
-		user.getRate().put(getAttributeKeyword(), RATE);
+		user.setId("dennis");
+		user.getMajorKeywordRates().put(getAttributeKeyword(), RATE);
 		
 		return user;
 	}

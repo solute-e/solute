@@ -21,8 +21,8 @@ public class UserService {
 	}
 	
 	private void operate(User user, AttributeKeyword attrKeyword, Integer operand) {
-		Integer val = user.getRate().get(attrKeyword);
-		user.getRate().put(attrKeyword, val + operand);
+		Integer val = user.getMajorKeywordRates().get(attrKeyword);
+		user.getMajorKeywordRates().put(attrKeyword, val + operand);
 		
 		userDao.update(user);
 	}

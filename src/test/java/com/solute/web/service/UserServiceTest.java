@@ -30,18 +30,18 @@ public class UserServiceTest extends AbstractSpringBaseContextTest {
 	
 	@Test
 	public void testIncrement() {
-		Integer expected = user.getRate().get(getAttributeKeyword()) + 1;
+		Integer expected = user.getMajorKeywordRates().get(getAttributeKeyword()) + 1;
 		userService.increment(user, getAttributeKeyword());
-		Integer actual = userDao.select(user.getId()).getRate().get(getAttributeKeyword()); 
+		Integer actual = userDao.select(user.getId()).getMajorKeywordRates().get(getAttributeKeyword()); 
 		
 		assertEquals(expected, actual);
 	}
 	
 	@Test
 	public void testDecrement() {
-		Integer expected = user.getRate().get(getAttributeKeyword()) - 1;
+		Integer expected = user.getMajorKeywordRates().get(getAttributeKeyword()) - 1;
 		userService.decrement(user, getAttributeKeyword());
-		Integer actual = userDao.select(user.getId()).getRate().get(getAttributeKeyword()); 
+		Integer actual = userDao.select(user.getId()).getMajorKeywordRates().get(getAttributeKeyword()); 
 		
 		assertEquals(expected, actual);
 	}
