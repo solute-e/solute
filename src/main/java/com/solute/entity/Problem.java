@@ -19,30 +19,45 @@ public class Problem {
 	
 	@OneToMany(targetEntity = AttributeKeyword.class)
 	@MapKey(name = "id")
-	private Map<AttributeKeyword, Integer> rate = new HashMap<AttributeKeyword, Integer>();
+	private Map<AttributeKeyword, Integer> majorKeywordRates = new HashMap<AttributeKeyword, Integer>();
+	
+	@OneToMany(targetEntity = AttributeKeyword.class)
+	@MapKey(name = "id")
+	private Map<AttributeKeyword, Integer> minorKeywordRates = new HashMap<AttributeKeyword, Integer>();
 	
 	@OneToOne(cascade = CascadeType.ALL, targetEntity = RealProblem.class)
 	private RealProblem realProblem;
 
-	public Long getId() {
-		return id;
+	public Map<AttributeKeyword, Integer> getMajorKeywordRates() {
+		return majorKeywordRates;
 	}
 
-	public Map<AttributeKeyword, Integer> getRate() {
-		return rate;
+	public void setMajorKeywordRates(Map<AttributeKeyword, Integer> majorKeywordRates) {
+		this.majorKeywordRates = majorKeywordRates;
+	}
+
+	public Map<AttributeKeyword, Integer> getMinorKeywordRates() {
+		return minorKeywordRates;
+	}
+
+	public void setMinorKeywordRates(Map<AttributeKeyword, Integer> minorKeywordRates) {
+		this.minorKeywordRates = minorKeywordRates;
 	}
 
 	public RealProblem getRealProblem() {
 		return realProblem;
 	}
-	
-	public Problem setName(Map<AttributeKeyword, Integer> rate) {
-		this.rate = rate;
-		return this;
-	}
-	
-	public Problem setName(RealProblem realProblem) {
+
+	public void setRealProblem(RealProblem realProblem) {
 		this.realProblem = realProblem;
-		return this;
 	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+	
 }

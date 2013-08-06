@@ -1,9 +1,23 @@
 package com.solute.dao;
 
-import com.solute.entity.AttributeKeyword;
+import org.springframework.stereotype.Repository;
 
-public interface AttributeKeywordDao {
-	void insert(AttributeKeyword keyword);
-	AttributeKeyword select(Long id);
-	void delete(AttributeKeyword keyword);
+import com.solute.entity.AttributeKeyword;
+import com.solute.utils.HibernateSupportDao;
+
+@Repository
+public class AttributeKeywordDao extends HibernateSupportDao {
+
+	public void insert(AttributeKeyword keyword) {
+		session().save(keyword);
+	}
+
+	public AttributeKeyword select(Long id) {
+		return (AttributeKeyword)session().get(AttributeKeyword.class, id);
+	}
+
+	public void delete(AttributeKeyword keyword) {
+		session().delete(keyword);
+	}
+	
 }
