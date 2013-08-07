@@ -77,10 +77,4 @@ public class Keyword implements Serializable {
 			return false;
 		return true;
 	}
-
-	@Override
-	public String toString() {
-		return "Keyword [id=" + id + ", token=" + token + "]";
-	}
-	
 }

@@ -13,16 +13,16 @@ public class UserService {
 	private UserDao userDao;
 	
 	public void increment(User user, AttributeKeyword attrKeyword) {
-		operate(user, attrKeyword, +1);
+		operate(user, attrKeyword, +1.0);
 	}
 	
 	public void decrement(User user, AttributeKeyword attrKeyword) {
-		operate(user, attrKeyword, -1);
+		operate(user, attrKeyword, -1.0);
 	}
 	
-	private void operate(User user, AttributeKeyword attrKeyword, Integer operand) {
-		Integer val = user.getMajorKeywordRates().get(attrKeyword);
-		user.getMajorKeywordRates().put(attrKeyword, val + operand);
+	private void operate(User user, AttributeKeyword attrKeyword, Double operand) {
+		Double val = user.getRates().get(attrKeyword);
+		user.getRates().put(attrKeyword, val + operand);
 		
 		userDao.update(user);
 	}

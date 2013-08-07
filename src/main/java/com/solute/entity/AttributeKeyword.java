@@ -27,7 +27,7 @@ public class AttributeKeyword implements Serializable {
 	private AttributeCode code;
 	
 	@Column(nullable = false)
-	private Integer defaultRate;
+	private Double defaultRate;
 	
 	@Column(nullable = false)
 	@OneToMany(targetEntity = Keyword.class)	
@@ -49,18 +49,18 @@ public class AttributeKeyword implements Serializable {
 		this.code = code;
 	}
 	
-	public AttributeKeyword(Long id, AttributeCode code, Integer defaultRate) {
+	public AttributeKeyword(Long id, AttributeCode code, Double defaultRate) {
 		super();
 		this.id = id;
 		this.code = code;
 		this.defaultRate = defaultRate;
 	}
 
-	public Integer getDefaultRate() {
+	public Double getDefaultRate() {
 		return defaultRate;
 	}
 
-	public void setDefaultRate(Integer defaultRate) {
+	public void setDefaultRate(Double defaultRate) {
 		this.defaultRate = defaultRate;
 	}
 
@@ -85,9 +85,11 @@ public class AttributeKeyword implements Serializable {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((code == null) ? 0 : code.hashCode());
-		result = prime * result + ((defaultRate == null) ? 0 : defaultRate.hashCode());
+		result = prime * result
+				+ ((defaultRate == null) ? 0 : defaultRate.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((keywords == null) ? 0 : keywords.hashCode());
+		result = prime * result
+				+ ((keywords == null) ? 0 : keywords.hashCode());
 		return result;
 	}
 

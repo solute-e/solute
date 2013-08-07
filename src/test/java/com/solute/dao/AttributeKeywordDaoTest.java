@@ -26,16 +26,16 @@ public class AttributeKeywordDaoTest extends AbstractSpringBaseContextTest {
 	);
 	
 	private AttributeKeyword []attributeKeywords = ArrayUtils.toArray(
-			new AttributeKeyword(1L, AttributeCode.RECOGNITION, 20),
-			new AttributeKeyword(2L, AttributeCode.KNOWLEDGE, 30),
-			new AttributeKeyword(3L, AttributeCode.RECOGNITION, 41)
+			new AttributeKeyword(1L, AttributeCode.RECOGNITION, 20.0),
+			new AttributeKeyword(2L, AttributeCode.KNOWLEDGE, 30.0),
+			new AttributeKeyword(3L, AttributeCode.RECOGNITION, 41.0)
 	);
 	
 	@Before
 	public void setUp() {
 		for (AttributeKeyword keyword : attributeKeywords) {
 			keyword.setKeywords(TestUtils.toSet(keywords));
-			dao.insert(keyword);
+			dao.update(keyword);
 		}
 	}
 	

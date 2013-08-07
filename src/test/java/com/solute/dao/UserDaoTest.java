@@ -1,20 +1,19 @@
 package com.solute.dao;
 
+import static com.solute.test.utils.TestUtils.getAttributeKeyword;
 import junit.framework.Assert;
-import static com.solute.test.utils.TestUtils.*;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.solute.entity.AttributeKeyword;
-import com.solute.entity.Keyword;
 import com.solute.entity.User;
+import com.solute.test.utils.TestUtils;
 import com.solute.test.utils.suite.AbstractSpringBaseContextTest;
 
 public class UserDaoTest extends AbstractSpringBaseContextTest {
 
-	private static final Integer RATE = 20;
+	private static final Double RATE = 20.0;
 	private User user;
 	
 	@Autowired
@@ -22,9 +21,7 @@ public class UserDaoTest extends AbstractSpringBaseContextTest {
 
 	@Before
 	public void setUp() {
-		user = new User();
-		user.setId("dennis");
-		user.getMajorKeywordRates().put(getAttributeKeyword(), RATE);
+		user = TestUtils.getUser();
 	}
 	
 	@Test
@@ -40,7 +37,7 @@ public class UserDaoTest extends AbstractSpringBaseContextTest {
 		dao.update(user);
 		User actual = dao.select(user.getId());
 		
-		Assert.assertEquals(RATE, actual.getMajorKeywordRates().get(getAttributeKeyword()));
+		Assert.assertEquals(RATE, actual.getRates().get(getAttributeKeyword()));
 	}
 	
 	@Test
@@ -48,11 +45,11 @@ public class UserDaoTest extends AbstractSpringBaseContextTest {
 		dao.update(user);
 		User expected = dao.select(user.getId());
 		
-		expected.getMajorKeywordRates().put(getAttributeKeyword(), expected.getMajorKeywordRates().get(getAttributeKeyword()) + 1);
+		expected.getRates().put(getAttributeKeyword(), expected.getRates().get(getAttributeKeyword()) + 1);
 		dao.update(expected);
 		
 		User actual = dao.select(user.getId());
-		Assert.assertEquals(expected.getMajorKeywordRates().get(getAttributeKeyword()), actual.getMajorKeywordRates().get(getAttributeKeyword()));
+		Assert.assertEquals(expected.getRates().get(getAttributeKeyword()), actual.getRates().get(getAttributeKeyword()));
 		Assert.assertEquals(expected, actual);
 	}
 }

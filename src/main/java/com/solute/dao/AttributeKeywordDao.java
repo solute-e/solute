@@ -8,8 +8,8 @@ import com.solute.utils.HibernateSupportDao;
 @Repository
 public class AttributeKeywordDao extends HibernateSupportDao {
 
-	public void insert(AttributeKeyword keyword) {
-		session().save(keyword);
+	public void update(AttributeKeyword keyword) {
+		session().saveOrUpdate(keyword);
 	}
 
 	public AttributeKeyword select(Long id) {
@@ -19,5 +19,4 @@ public class AttributeKeywordDao extends HibernateSupportDao {
 	public void delete(AttributeKeyword keyword) {
 		session().delete(keyword);
 	}
-	
 }

@@ -5,11 +5,11 @@ import java.util.Set;
 
 import com.solute.entity.AttributeKeyword;
 import com.solute.entity.Keyword;
+import com.solute.entity.Problem;
 import com.solute.entity.User;
 
 public class TestUtils {
 	public static final String TOKEN = "LOG";
-	public static final Integer RATE = 20;
 	
 	
 	public static <T> Set<T> toSet(T ...elements) {
@@ -34,7 +34,7 @@ public class TestUtils {
 	
 	public static AttributeKeyword getAttributeKeyword() {
 		AttributeKeyword ak = new AttributeKeyword();
-		ak.setDefaultRate(20);
+		ak.setDefaultRate(20.0);
 		ak.getKeywords().add(getKeyword());
 		
 		return ak;
@@ -43,8 +43,15 @@ public class TestUtils {
 	public static User getUser() {
 		User user = new User();
 		user.setId("dennis");
-		user.getMajorKeywordRates().put(getAttributeKeyword(), RATE);
 		
 		return user;
+	}
+
+	public static Problem getProblem() {
+		Problem problem = new Problem();
+		problem.setId(0L);
+		problem.getRates().put(getAttributeKeyword(), 30.0);
+		
+		return problem;
 	}
 }

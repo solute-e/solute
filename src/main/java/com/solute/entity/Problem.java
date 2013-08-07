@@ -19,29 +19,17 @@ public class Problem {
 	
 	@OneToMany(targetEntity = AttributeKeyword.class)
 	@MapKey(name = "id")
-	private Map<AttributeKeyword, Integer> majorKeywordRates = new HashMap<AttributeKeyword, Integer>();
-	
-	@OneToMany(targetEntity = AttributeKeyword.class)
-	@MapKey(name = "id")
-	private Map<AttributeKeyword, Integer> minorKeywordRates = new HashMap<AttributeKeyword, Integer>();
+	private Map<AttributeKeyword, Double> rates = new HashMap<AttributeKeyword, Double>();
 	
 	@OneToOne(cascade = CascadeType.ALL, targetEntity = RealProblem.class)
 	private RealProblem realProblem;
 
-	public Map<AttributeKeyword, Integer> getMajorKeywordRates() {
-		return majorKeywordRates;
+	public Map<AttributeKeyword, Double> getRates() {
+		return rates;
 	}
 
-	public void setMajorKeywordRates(Map<AttributeKeyword, Integer> majorKeywordRates) {
-		this.majorKeywordRates = majorKeywordRates;
-	}
-
-	public Map<AttributeKeyword, Integer> getMinorKeywordRates() {
-		return minorKeywordRates;
-	}
-
-	public void setMinorKeywordRates(Map<AttributeKeyword, Integer> minorKeywordRates) {
-		this.minorKeywordRates = minorKeywordRates;
+	public void setRates(Map<AttributeKeyword, Double> rates) {
+		this.rates = rates;
 	}
 
 	public RealProblem getRealProblem() {
