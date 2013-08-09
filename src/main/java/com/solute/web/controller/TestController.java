@@ -12,14 +12,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Created with IntelliJ IDEA.
- * User: dennis
- * Date: 13. 2. 6
- * Time: 오후 8:37
- * To change this template use File | Settings | File Templates.
- */
-
 @Controller
 @RequestMapping(value = "/mtest")
 public class TestController {

@@ -24,11 +24,11 @@
 			<div class="span9">
 				
 			</div>
-			<div class="span2">
+			<div class="span3">
 				
 			</div>
 		</div> 
-		<div class="row-fluid">
+		<div class="row">
 			<div class="span9">
 			</div>
 			<div class="span3">
