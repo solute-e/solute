@@ -18,23 +18,41 @@
 	}
 </style>
 <script>
-	$(function() {
-		$("#problem > img").bind("dragover",function(e){
+function handleDrop(e) {
+	console.debug(e);
+	
+	for (var i = 0; i < e.dataTransfer.files.length; ++i) {
+		var file = e.dataTransfer.files[i];
+	}
+	
+	console.debug(file);
+	
+	e.stopPropagation();
+	e.preventDefault();
+	
+	return false;
+}
+
+$(function() {
+	var els = document.querySelectorAll("#problem");
+	[].forEach.call(els, function(el) {
+		console.debug(el);
+		el.addEventListener("drop", handleDrop, false);
+		el.addEventListener("dragover", function(e) {
 			console.debug("test");
-		}).bind("dragstart", function(e) {
-			console.debug("drag test");
-		}).bind("dragend", function(e) {
-			console.debug("dragend test");
-		});
+			e.dataTransfer.dropEffect = 'copy';
+			
+			e.preventDefault();
+		}, false);
 	});
+});
 	
 </script>
 </head> 
 <body>
 	<div class="container-fluid" style="height: 100%;">
 		<div class="row-fluid" style="height: 80%;">
-			<div id="problem" class="span9" style="height: 100%;">
-				<img style="width: 100%; height: 100%;" />
+			<div id="problem" class="span9" style="height: 100%;" draggable="true"> 
 			</div>
 			<div id="solution" class="span3" style="height: 100%;">
 				<img src="${webappRoot}/resources/images/book.gif" />
