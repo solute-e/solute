@@ -3,7 +3,7 @@
 "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
 "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 <tiles-definitions>
-	<definition name="frontpage.body.main.tiles" templateExpression="${views_prefix}/frontpage/layout.jsp">
+	<definition name="frontpage.body.main.tiles" templateExpression="${tilesPrefix}/frontpage/layout.jsp">
 	</definition>
 	<definition name="frontpage.body.tiles" extends="common.body.tiles" >
 		<put-attribute name="body.main">

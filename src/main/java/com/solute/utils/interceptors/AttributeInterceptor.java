@@ -18,7 +18,8 @@ public class AttributeInterceptor extends HandlerInterceptorAdapter {
 	private @Autowired ServletContext sc;
 	private @Autowired CookieLocaleResolver localeResolver;
 	private String [][]configs = {
-			{"views_prefix", "/WEB-INF/views"}
+			{"viewsPrefix", "/WEB-INF/views"},
+			{"tilesPrefix", "/WEB-INF/views/tiles"}
 	};
 
 	@Override

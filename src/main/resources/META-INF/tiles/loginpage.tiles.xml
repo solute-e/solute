@@ -3,14 +3,14 @@
 "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
 "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 <tiles-definitions>
-    <definition name="loginpage.body.tiles" template="/WEB-INF/views/loginpage/body/layout.jsp">
-        <put-attribute name="title" value="/WEB-INF/views/loginpage/body/title.jsp" />
-        <put-attribute name="left" value="/WEB-INF/views/loginpage/body/left.jsp" />
-        <put-attribute name="right" expression="/WEB-INF/views/loginpage/${body_right}.jsp" />
+    <definition name="loginpage.body.tiles" templateExpression="${tilesPrefix}/loginpage/body/layout.jsp">
+        <put-attribute name="title" expression="${tilesPrefix}/loginpage/body/title.jsp" />
+        <put-attribute name="left" expression="${tilesPrefix}/loginpage/body/left.jsp" />
+        <put-attribute name="right" expression="${tilesPrefix}/loginpage/${body_right}.jsp" />
     </definition>
-	<definition name="loginpage.tiles" template="/WEB-INF/views/loginpage/layout.jsp">
-		<put-attribute name="commons" value="/WEB-INF/views/loginpage/commons.jsp" />
-        <put-attribute name="header" value="/WEB-INF/views/loginpage/header.jsp" />
+	<definition name="loginpage.tiles" template="${tilesPrefix}/loginpage/layout.jsp">
+		<put-attribute name="commons" value="${tilesPrefix}/loginpage/commons.jsp" />
+        <put-attribute name="header" value="${tilesPrefix}/loginpage/header.jsp" />
 		<put-attribute name="body" value="loginpage.body.tiles" />
 		<put-attribute name="footer" value="" />
 	</definition>

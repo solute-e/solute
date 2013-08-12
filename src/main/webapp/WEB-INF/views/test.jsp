@@ -8,43 +8,65 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Solute Test Page</title>
 <link rel="stylesheet" href="${webappRoot}/resources/styles/<spring:theme code="css"/>" type="text/css" />
-<script src="${webappRoot}/resources/js/libs/lodash.js"></script>
-<script src="${webappRoot}/resources/js/libs/jquery.js"></script>
-<script src="${webappRoot}/resources/js/libs/bootstrap.js"></script>
-<script src="${webappRoot}/resources/js/libs/backbone.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/1.3.1/lodash.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min.js"></script>
 <style>
 	html, body {
 		height: 100%;
 	}
 </style>
 <script>
-function handleDrop(e) {
-	console.debug(e);
-	
-	for (var i = 0; i < e.dataTransfer.files.length; ++i) {
-		var file = e.dataTransfer.files[i];
-	}
-	
-	console.debug(file);
-	
-	e.stopPropagation();
-	e.preventDefault();
-	
-	return false;
-}
-
 $(function() {
-	var els = document.querySelectorAll("#problem");
+	/* var els = document.querySelectorAll("#problem");
 	[].forEach.call(els, function(el) {
 		console.debug(el);
-		el.addEventListener("drop", handleDrop, false);
+		el.addEventListener("drop", function(e) {
+			var $problem = $("#problem");
+			console.debug(e);
+			
+			for (var i = 0; i < e.dataTransfer.files.length; ++i) {
+				var file = e.dataTransfer.files[i],
+						fileUrl = URL.createObjectURL(file);
+				console.debug(fileUrl);
+				
+				$problem.append($("<img></img>").attr('src', fileUrl));
+			}
+			
+			e.stopPropagation();
+			e.preventDefault();
+			
+			return false;
+		}, false);
 		el.addEventListener("dragover", function(e) {
 			console.debug("test");
-			e.dataTransfer.dropEffect = 'copy';
-			
+			e.stopPropagation();			
 			e.preventDefault();
 		}, false);
-	});
+	}); */
+	
+	$("#problem").bind("drop", function (e) {
+		var $problem = $("#problem");
+		e.stopPropagation();
+		e.preventDefault();
+		
+		console.debug(e);
+		
+		for (var i = 0; i < e.originalEvent.dataTransfer.files.length; ++i) {
+			var file = e.originalEvent.dataTransfer.files[i],
+					fileUrl = URL.createObjectURL(file);
+			console.debug(fileUrl);
+			
+			$problem.append($("<img></img>").attr('src', fileUrl));
+		}
+	}).bind("dragover", function (e) {
+		e.stopPropagation();
+		e.preventDefault();
+	}).bind("dragenter", function (e) {
+		e.stopPropagation();
+		e.preventDefault();
+	})
 });
 	
 </script>
@@ -55,7 +77,6 @@ $(function() {
 			<div id="problem" class="span9" style="height: 100%;" draggable="true"> 
 			</div>
 			<div id="solution" class="span3" style="height: 100%;">
-				<img src="${webappRoot}/resources/images/book.gif" />
 			</div>
 		</div> 
 		<div class="row-fluid">
