@@ -41,7 +41,7 @@
 			}).bind("dragenter", function (e) {
 				e.stopPropagation();
 				e.preventDefault();
-			})
+			});
 		});
 		
 	</script>

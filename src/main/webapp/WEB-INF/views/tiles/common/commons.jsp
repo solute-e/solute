@@ -16,3 +16,33 @@
 	Backbone.history.start();
 }(Backbone));
 </script>
+
+<div id="uploadView" class="modal hide fade" tabindex="-1" role="dialog"
+	aria-labelledby="uploadViewLabel" aria-hidden="true">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal"
+			aria-hidden="true">×</button>
+		<h3 id="uploadViewLabel">Uploader</h3>
+	</div>
+	<div class="modal-body">
+		<div class="container-fluid" style="width: 800px; height: 600px;">
+			<div class="row-fluid" style="height: 80%;">
+				<div id="uploader.problem" class="span9" style="height: 100%;"
+					draggable="true"></div>
+				<div id="uploader.solution" class="span3" style="height: 100%;">
+				</div>
+			</div>
+			<div class="row-fluid">
+				<div class="span9"></div>
+				<div class="span3">
+					<form class="form-inline">
+						<input type="text" placeholder="Type keyword" />
+						<button type="submit" class="btn">Add</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal-footer">
+	</div>
+</div>
