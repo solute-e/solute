@@ -11,6 +11,12 @@
 
 <script type="text/javascript" src="${webappRoot}/resources/js/solute.js"></script>
 <script type="text/javascript" src="${webappRoot}/resources/js/routes.js"></script>
+<style type="text/css">
+    #uploadView {
+        width: 800px;
+        margin-left: -400px;
+    }
+</style>
 <script type="text/javascript">
 (function (Backbone) {
 	Backbone.history.start();
@@ -25,11 +31,13 @@
 		<h3 id="uploadViewLabel">Uploader</h3>
 	</div>
 	<div class="modal-body">
-		<div class="container-fluid" style="width: 800px; height: 600px;">
-			<div class="row-fluid" style="height: 80%;">
-				<div id="uploader.problem" class="span9" style="height: 100%;"
-					draggable="true"></div>
-				<div id="uploader.solution" class="span3" style="height: 100%;">
+		<div class="container-fluid">
+			<div class="row-fluid">
+				<div id="uploader.problem" class="span9" draggable="true">
+
+				</div>
+				<div id="uploader.solution" class="span3">
+
 				</div>
 			</div>
 			<div class="row-fluid">
