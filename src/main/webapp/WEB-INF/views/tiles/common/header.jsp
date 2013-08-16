@@ -17,8 +17,7 @@
 		<li id="s-donate" class="s-donate"><a href="">문제기부하기</a></li>
 		<li>
 		<li>
-			<button data-target="#uploadView" class="btn"
-				data-toggle="modal">나와랏</button>
+			<button class="btn">나와랏</button>
 		</li>
 	</ul>
 </div>

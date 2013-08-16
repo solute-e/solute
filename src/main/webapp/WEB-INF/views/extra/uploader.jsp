@@ -45,23 +45,25 @@
 		});
 		
 	</script>
-	<div class="container-fluid" style="height: 100%;">
-		<div class="row-fluid" style="height: 80%;">
-			<div id="uploader.problem" class="span9" style="height: 100%;" draggable="true"> 
-			</div>
-			<div id="uploader.solution" class="span3" style="height: 100%;">
-			</div>
-		</div> 
-		<div class="row-fluid">
-			<div class="span9">
-			</div>
-			<div class="span3">
-				<form class="form-inline">
-					<input type="text" placeholder="Type keyword" />
-					<button type="submit" class="btn">Add</button>
-				</form>
-			</div>
-		</div>
-	</div>
+    <div class="modal-body">
+        <div class="container-fluid" style="width: 800px; height: 600px;">
+            <div class="row-fluid">
+                <div id="uploader.problem" class="span9">
+                </div>
+                <div id="uploader.solution" class="span3">
+
+                </div>
+            </div>
+            <div class="row-fluid">
+                <div class="span9"></div>
+                <div class="span3">
+                    <form class="form-inline">
+                        <input type="text" placeholder="Type keyword" />
+                        <button type="submit" class="btn">Add</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
